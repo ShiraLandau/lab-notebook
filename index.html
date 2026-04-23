@@ -149,7 +149,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);m
 @media (min-width:700px) {
   .app {flex-direction:row;}
   .bottom-nav {display:none;}
-  .desktop-sidebar {display:flex !important;flex-direction:column;width:220px;min-height:100vh;background:var(--ink);color:white;position:sticky;top:0;height:100vh;flex-shrink:0;}
+  .desktop-sidebar {display:flex;flex-direction:column;width:220px;min-height:100vh;background:var(--ink);color:white;position:sticky;top:0;height:100vh;flex-shrink:0;}
   .sidebar-logo {padding:28px 24px 20px;border-bottom:1px solid rgba(255,255,255,0.08);}
   .logo-name {font-family:'DM Serif Display',serif;font-size:20px;}
   .logo-sub {font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:0.06em;text-transform:uppercase;}
@@ -168,7 +168,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);m
   .content {padding:22px 36px 56px;}
   .stats-grid {grid-template-columns:repeat(4,1fr);}
 }
-.desktop-sidebar {display:none;}
+@media (max-width:699px) { .desktop-sidebar {display:none;} }
 </style>
 </head>
 <body>
