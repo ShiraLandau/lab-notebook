@@ -196,6 +196,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);m
       <label>Password</label>
       <input id="a-pass" type="password" placeholder="Password" autocomplete="current-password" />
     </div>
+    <div id="login-extras" style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;margin-bottom:4px;">
+      <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2);cursor:pointer;">
+        <input type="checkbox" id="stay-signed-in" style="width:16px;height:16px;accent-color:#2d5a3d;cursor:pointer;" checked />
+        Stay signed in
+      </label>
+      <button onclick="forgotPassword()" style="background:none;border:none;color:#2d5a3d;font-size:13px;cursor:pointer;font-family:inherit;padding:0;text-decoration:underline;">Forgot password?</button>
+    </div>
     <button class="auth-btn" id="auth-submit-btn" onclick="handleAuth()">Sign in</button>
     <div class="auth-msg" id="auth-msg"></div>
   </div>
@@ -443,6 +450,7 @@ function setAuthTab(mode) {
   authMode = mode;
   document.querySelectorAll('.auth-tab').forEach(function(b,i){ b.classList.toggle('active', ['login','signup'][i]===mode); });
   document.getElementById('name-row').style.display = mode==='signup' ? 'block' : 'none';
+  document.getElementById('login-extras').style.display = mode==='signup' ? 'none' : 'flex';
   document.getElementById('auth-submit-btn').textContent = mode==='signup' ? 'Create account' : 'Sign in';
   document.getElementById('auth-msg').className = 'auth-msg';
 }
@@ -477,6 +485,12 @@ async function handleAuth() {
       currentUser = data.user;
       userName = (currentUser.user_metadata && currentUser.user_metadata.full_name) || currentUser.email.split('@')[0];
       isPI = currentUser.email === PI_EMAIL;
+      var stay = document.getElementById('stay-signed-in').checked;
+      if (stay) {
+        localStorage.setItem('lab_session', JSON.stringify({ token: data.access_token, user: data.user, userName: userName }));
+      } else {
+        localStorage.removeItem('lab_session');
+      }
       onLogin();
     }
   } catch(e) {
@@ -509,6 +523,7 @@ function onLogin() {
 }
 
 function logout() {
+  localStorage.removeItem('lab_session');
   currentUser = null; userToken = null; userName = ''; isPI = false; allEntries = [];
   document.getElementById('app-screen').style.display = 'none';
   document.getElementById('auth-screen').style.display = 'flex';
@@ -516,6 +531,48 @@ function logout() {
   document.getElementById('a-pass').value = '';
   document.getElementById('auth-msg').className = 'auth-msg';
 }
+
+// ── Forgot password ───────────────────────────────────────────────────────────
+async function forgotPassword() {
+  var email = document.getElementById('a-email').value.trim();
+  var msg = document.getElementById('auth-msg');
+  if (!email) { msg.textContent = 'Enter your email address above first.'; msg.className = 'auth-msg err'; return; }
+  try {
+    var res = await fetch(SUPABASE_URL+'/auth/v1/recover', {
+      method: 'POST',
+      headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, redirect_to: 'https://shiralandau.github.io/lab-notebook' })
+    });
+    msg.textContent = 'Password reset email sent to ' + email + '. Check your inbox.';
+    msg.className = 'auth-msg ok';
+  } catch(e) {
+    msg.textContent = 'Could not send reset email. Try again.';
+    msg.className = 'auth-msg err';
+  }
+}
+
+// ── Auto-login from saved session ─────────────────────────────────────────────
+(function() {
+  try {
+    var saved = localStorage.getItem('lab_session');
+    if (saved) {
+      var s = JSON.parse(saved);
+      if (s.token && s.user) {
+        userToken = s.token;
+        currentUser = s.user;
+        userName = s.userName || (s.user.user_metadata && s.user.user_metadata.full_name) || s.user.email.split('@')[0];
+        isPI = s.user.email === PI_EMAIL;
+        // Verify token is still valid
+        fetch(SUPABASE_URL+'/auth/v1/user', { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer '+s.token } })
+          .then(function(r){ return r.json(); })
+          .then(function(d){
+            if (d.id) { onLogin(); }
+            else { localStorage.removeItem('lab_session'); }
+          }).catch(function(){ localStorage.removeItem('lab_session'); });
+      }
+    }
+  } catch(e) {}
+})();
 
 // ── DB helpers ────────────────────────────────────────────────────────────────
 async function dbFetch(path, opts) {
