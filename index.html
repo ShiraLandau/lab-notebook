@@ -10,91 +10,89 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --navy:#0f1f3d;--navy2:#1a3060;--navy3:#2a4a8a;
-  --teal:#1a6e7a;--teal2:#2a9aaa;--teal-light:#e6f5f7;
+  --navy:#0f1f3d;--navy2:#1a3060;--navy3:#243a7a;
+  --teal:#1a6e7a;--teal2:#2a9aaa;--teal-light:#e4f2f4;
   --ink:#1a1a2e;--ink2:#3a3a55;--ink3:#7a7a9a;
   --paper:#f8f9fc;--paper2:#eef0f6;--paper3:#dde0ec;
-  --accent:#1a6e7a;--accent2:#2a9aaa;--accent-light:#e6f5f7;
-  --gold:#b8860b;--gold-light:#fdf8e8;
   --red:#8b2020;--red-light:#fceaea;
-  --green:#1a5c3a;--green-light:#e6f5ec;
+  --green:#1a5c3a;--green-light:#e4f2ea;
+  --gold:#9a6b00;--gold-light:#fdf5e0;
   --border:rgba(26,48,96,0.12);--border2:rgba(26,48,96,0.22);
   --radius:6px;--radius-lg:10px;
-  --shadow:0 1px 4px rgba(15,31,61,0.08),0 4px 16px rgba(15,31,61,0.05);
+  --shadow:0 1px 4px rgba(15,31,61,0.07),0 4px 16px rgba(15,31,61,0.05);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;min-height:100dvh;}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;}
 
-/* ── AUTH ── */
-#auth-screen{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--navy);}
-.auth-box{background:white;border-radius:12px;padding:36px 32px;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
-.auth-logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:2px;letter-spacing:-0.3px;}
+/* AUTH */
+#auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--navy);}
+.auth-box{background:white;border-radius:12px;padding:36px 32px;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,0.35);border-top:3px solid var(--teal);}
+.auth-logo{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:3px;}
 .auth-sub{font-size:12px;color:var(--ink3);margin-bottom:26px;line-height:1.5;}
-.auth-tabs{display:flex;margin-bottom:22px;border:1.5px solid var(--border2);border-radius:var(--radius);overflow:hidden;}
+.auth-tabs{display:flex;margin-bottom:20px;border:1.5px solid var(--border2);border-radius:var(--radius);overflow:hidden;}
 .auth-tab{flex:1;padding:10px;border:none;background:transparent;cursor:pointer;font-size:13.5px;font-weight:500;font-family:'Inter',sans-serif;color:var(--ink3);transition:all 0.15s;}
 .auth-tab.active{background:var(--navy);color:white;}
 .auth-field{margin-bottom:14px;}
-.auth-field label{display:block;font-size:12px;font-weight:600;color:var(--ink2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;}
+.auth-field label{display:block;font-size:11px;font-weight:700;color:var(--ink2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.06em;}
 .auth-field input{width:100%;border:1.5px solid var(--border2);border-radius:var(--radius);padding:12px 14px;font-size:16px;font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);outline:none;transition:border-color 0.15s;}
 .auth-field input:focus{border-color:var(--teal);background:white;}
 .auth-extras{display:flex;align-items:center;justify-content:space-between;margin:10px 0 6px;}
 .auth-extras label{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink2);cursor:pointer;}
 .auth-extras input[type=checkbox]{width:15px;height:15px;accent-color:var(--navy);}
 .auth-extras button{background:none;border:none;color:var(--teal);font-size:13px;cursor:pointer;font-family:inherit;text-decoration:underline;}
-.auth-btn{width:100%;padding:13px;background:var(--navy);color:white;border:none;border-radius:var(--radius);font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;margin-top:4px;transition:background 0.15s;letter-spacing:0.02em;}
+.auth-btn{width:100%;padding:13px;background:var(--navy);color:white;border:none;border-radius:var(--radius);font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;margin-top:4px;transition:background 0.15s;}
 .auth-btn:hover{background:var(--navy2);}
-.auth-msg{font-size:13px;margin-top:12px;padding:10px 14px;border-radius:var(--radius);display:none;}
+.auth-msg{font-size:13px;margin-top:12px;padding:10px 14px;border-radius:var(--radius);display:none;line-height:1.5;}
 .auth-msg.ok{background:var(--green-light);color:var(--green);display:block;}
 .auth-msg.err{background:var(--red-light);color:var(--red);display:block;}
 .name-row{display:none;}
 
-/* ── APP ── */
+/* APP */
 #app-screen{display:none;}
-.app{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;}
+.app{display:flex;flex-direction:column;min-height:100vh;}
+.accent-bar{height:3px;background:linear-gradient(90deg,var(--navy),var(--teal2),var(--navy3));flex-shrink:0;}
 
-/* Accent bar */
-.accent-bar{height:3px;background:linear-gradient(90deg,var(--navy),var(--teal),var(--navy3));flex-shrink:0;}
-
-/* Sidebar */
+/* Desktop sidebar */
 .desktop-sidebar{display:none;}
 @media(min-width:700px){
-  .desktop-sidebar{display:flex;flex-direction:column;width:230px;min-height:100vh;background:var(--navy);color:white;position:sticky;top:0;height:100vh;flex-shrink:0;}
+  .desktop-sidebar{display:flex!important;flex-direction:column;width:235px;min-height:100vh;background:var(--navy);color:white;position:sticky;top:0;height:100vh;flex-shrink:0;}
   .app{flex-direction:row;}
   .bottom-nav{display:none!important;}
-  .topbar{padding:28px 32px 0;background:transparent;color:var(--ink);position:static;}
-  .topbar-title{font-size:24px;color:var(--ink);}
-  .topbar-sub{color:var(--ink3);}
-  .user-chip{background:var(--paper2);color:var(--ink2);}
-  .logout-btn{color:var(--ink3);}
-  .content{padding:20px 32px 56px;}
-  .stats-grid{grid-template-columns:repeat(4,1fr);}
+  .main-area .topbar{padding:26px 32px 0;background:transparent;color:var(--ink);position:static;}
+  .main-area .topbar-title{font-size:23px;color:var(--ink);}
+  .main-area .topbar-sub{color:var(--ink3);}
+  .main-area .user-chip{background:var(--paper2);color:var(--ink2);}
+  .main-area .logout-btn{color:var(--ink3);}
+  .main-area .content{padding:20px 32px 56px;}
+  .stats-grid{grid-template-columns:repeat(4,1fr)!important;}
 }
-.sidebar-logo{padding:24px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.08);}
-.logo-name{font-family:'Playfair Display',serif;font-size:16px;line-height:1.3;letter-spacing:-0.2px;}
+.sidebar-top{height:3px;background:linear-gradient(90deg,var(--teal),var(--teal2));}
+.sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.logo-name{font-family:'Playfair Display',serif;font-size:16px;line-height:1.35;color:white;}
 .logo-sub{font-size:10px;color:rgba(255,255,255,0.35);margin-top:4px;letter-spacing:0.07em;text-transform:uppercase;}
-.logo-inst{font-size:10px;color:rgba(255,255,255,0.25);margin-top:2px;}
+.logo-inst{font-size:10px;color:rgba(255,255,255,0.22);margin-top:2px;}
 .sidebar-nav{padding:14px 10px;flex:1;}
 .snav-btn{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:var(--radius);cursor:pointer;font-size:13px;color:rgba(255,255,255,0.5);transition:all 0.15s;margin-bottom:2px;border:none;background:none;width:100%;text-align:left;font-family:'Inter',sans-serif;}
-.snav-btn:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.85);}
+.snav-btn:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85);}
 .snav-btn.active{background:rgba(26,110,122,0.25);color:white;border-left:2px solid var(--teal2);}
 .snav-btn svg{width:15px;height:15px;flex-shrink:0;}
-.snav-badge{background:var(--teal);color:white;border-radius:20px;font-size:9px;font-weight:600;padding:1px 6px;margin-left:auto;}
-.sidebar-foot{padding:14px 16px;border-top:1px solid rgba(255,255,255,0.07);font-size:11px;color:rgba(255,255,255,0.25);line-height:1.8;}
-.sync-row{display:flex;align-items:center;gap:5px;margin-bottom:4px;}
-.sync-dot{width:6px;height:6px;border-radius:50%;background:#2a9aaa;flex-shrink:0;}
-.sync-dot.off{background:#666;}
+.snav-badge{background:var(--teal);color:white;border-radius:20px;font-size:9px;font-weight:700;padding:1px 6px;margin-left:auto;}
+.sidebar-foot{padding:14px 16px;border-top:1px solid rgba(255,255,255,0.07);font-size:11px;color:rgba(255,255,255,0.22);line-height:1.8;}
+.sync-row{display:flex;align-items:center;gap:5px;margin-bottom:3px;}
+.sync-dot{width:6px;height:6px;border-radius:50%;background:var(--teal2);flex-shrink:0;}
+.sync-dot.off{background:#555;}
 
 /* Topbar */
-.topbar{background:var(--navy);color:white;padding:50px 20px 16px;position:sticky;top:0;z-index:10;}
-.topbar-title{font-family:'Playfair Display',serif;font-size:20px;letter-spacing:-0.2px;}
+.topbar{background:var(--navy);color:white;padding:50px 18px 16px;position:sticky;top:0;z-index:10;}
+.topbar-title{font-family:'Playfair Display',serif;font-size:20px;}
 .topbar-sub{font-size:12px;color:rgba(255,255,255,0.45);margin-top:2px;}
 .topbar-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
 .user-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);padding:5px 10px 5px 5px;border-radius:20px;font-size:12px;color:rgba(255,255,255,0.75);margin-top:8px;}
-.user-avatar{width:24px;height:24px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:white;flex-shrink:0;}
+.user-avatar{width:24px;height:24px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;}
 .logout-btn{background:transparent;border:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:11px;font-family:'Inter',sans-serif;margin-left:2px;}
-.pi-chip{background:var(--teal);color:white;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;margin-left:6px;letter-spacing:0.04em;}
+.pi-chip{background:var(--teal);color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:6px;letter-spacing:0.04em;}
 
-/* Panels & content */
+/* Panels */
 .panel{display:none;}.panel.active{display:block;}
 .content{flex:1;padding:16px 16px 90px;}
 .main-area{flex:1;overflow-y:auto;}
@@ -102,14 +100,14 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 /* Cards */
 .card{background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px;margin-bottom:12px;box-shadow:var(--shadow);}
 .card-title{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-.card-title::before{content:'';width:2px;height:12px;background:var(--teal);border-radius:1px;display:inline-block;}
+.card-title::before{content:'';width:2px;height:12px;background:var(--teal);border-radius:1px;flex-shrink:0;}
 
 /* Fields */
 .field{margin-bottom:14px;}.field:last-child{margin-bottom:0;}
-.field label{display:block;font-size:11.5px;font-weight:600;color:var(--ink2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--ink2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.06em;}
 .field input,.field textarea,.field select{width:100%;border:1.5px solid var(--border2);border-radius:var(--radius);padding:11px 12px;font-size:16px;font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);outline:none;transition:border-color 0.15s;resize:vertical;-webkit-appearance:none;}
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--teal);background:white;}
-.field textarea{min-height:88px;line-height:1.55;}
+.field textarea{min-height:86px;line-height:1.55;}
 .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7a9a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;}
 .field-hint{font-size:11px;color:var(--ink3);margin-top:4px;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -120,15 +118,30 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 .r-btn{padding:10px 4px;border:1.5px solid var(--border2);border-radius:var(--radius);background:var(--paper);cursor:pointer;font-size:12px;font-family:'Inter',sans-serif;color:var(--ink2);font-weight:500;transition:all 0.15s;text-align:center;}
 .r-btn.active{border-color:var(--teal);background:var(--teal-light);color:var(--teal);font-weight:600;}
 
+/* Project folder UI */
+.folder-nav{margin-bottom:16px;}
+.folder-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.folder-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);}
+.folders-row{display:flex;gap:8px;flex-wrap:wrap;}
+.folder-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--radius);border:1.5px solid var(--border2);background:var(--paper);cursor:pointer;font-size:13px;font-family:'Inter',sans-serif;color:var(--ink2);transition:all 0.15s;font-weight:500;}
+.folder-btn:hover{border-color:var(--teal);background:var(--teal-light);}
+.folder-btn.active{border-color:var(--navy);background:var(--navy);color:white;}
+.folder-btn svg{width:14px;height:14px;flex-shrink:0;}
+.folder-btn.add-folder{border-style:dashed;border-color:var(--teal);color:var(--teal);background:transparent;}
+.new-folder-row{display:flex;gap:8px;align-items:center;margin-top:8px;}
+.new-folder-input{flex:1;border:1.5px solid var(--border2);border-radius:var(--radius);padding:8px 12px;font-size:14px;font-family:'Inter',sans-serif;color:var(--ink);outline:none;}
+.new-folder-input:focus{border-color:var(--teal);}
+.new-folder-btn{background:var(--teal);color:white;border:none;border-radius:var(--radius);padding:8px 14px;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;white-space:nowrap;}
+
 /* File upload */
-.drop-zone{border:2px dashed var(--border2);border-radius:var(--radius-lg);padding:24px 16px;text-align:center;cursor:pointer;background:var(--paper);transition:all 0.15s;}
+.drop-zone{border:2px dashed var(--border2);border-radius:var(--radius-lg);padding:22px 16px;text-align:center;cursor:pointer;background:var(--paper);transition:all 0.15s;}
 .drop-zone:hover,.drop-zone.drag{border-color:var(--teal);background:var(--teal-light);}
-.drop-zone svg{width:28px;height:28px;color:var(--ink3);margin:0 auto 8px;display:block;}
+.drop-zone svg{width:26px;height:26px;color:var(--ink3);margin:0 auto 8px;display:block;}
 .dz-text{font-size:14px;color:var(--ink2);font-weight:500;}
 .dz-sub{font-size:12px;color:var(--ink3);margin-top:3px;}
-.file-list{margin-top:12px;display:flex;flex-direction:column;gap:6px;}
+.file-list{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
 .file-item{display:flex;align-items:center;gap:10px;background:white;border:1px solid var(--border);border-radius:var(--radius);padding:8px 10px;}
-.file-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:var(--paper2);}
+.file-icon{width:32px;height:32px;border-radius:6px;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
 .file-info{flex:1;min-width:0;}
 .file-name{font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .file-size{font-size:10px;color:var(--ink3);}
@@ -136,17 +149,28 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 .file-del{background:none;border:none;color:var(--ink3);cursor:pointer;font-size:16px;flex-shrink:0;padding:0 4px;}
 .file-preview{width:48px;height:36px;object-fit:cover;border-radius:4px;flex-shrink:0;}
 
+/* Email recipients */
+.email-recipients{margin-bottom:14px;}
+.email-to-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+.email-to-tag{background:var(--teal-light);color:var(--teal);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:500;display:flex;align-items:center;gap:5px;}
+.email-to-tag.fixed{background:var(--paper2);color:var(--ink2);}
+.email-to-tag button{background:none;border:none;color:inherit;cursor:pointer;font-size:13px;line-height:1;padding:0;opacity:0.6;}
+.add-email-row{display:flex;gap:8px;}
+.add-email-input{flex:1;border:1.5px solid var(--border2);border-radius:var(--radius);padding:9px 12px;font-size:14px;font-family:'Inter',sans-serif;color:var(--ink);outline:none;background:white;}
+.add-email-input:focus{border-color:var(--teal);}
+.add-email-btn{background:var(--navy);color:white;border:none;border-radius:var(--radius);padding:9px 16px;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;white-space:nowrap;}
+
 /* Buttons */
-.btn{padding:11px 18px;border-radius:var(--radius);font-size:13.5px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.15s;border:none;letter-spacing:0.01em;}
+.btn{padding:11px 18px;border-radius:var(--radius);font-size:13.5px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.15s;border:none;}
 .btn-primary{background:var(--navy);color:white;}.btn-primary:hover{background:var(--navy2);}
+.btn-teal{background:var(--teal);color:white;}.btn-teal:hover{background:var(--teal2);}
 .btn-ghost{background:transparent;color:var(--ink2);border:1.5px solid var(--border2);}.btn-ghost:hover{background:var(--paper2);}
 .btn-full{width:100%;padding:13px;font-size:14px;}
-.btn-row{display:flex;gap:10px;margin-top:16px;}
 
 /* Badges */
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;}
 .bg{background:var(--green-light);color:var(--green);}
-.bb{background:#e8eef8;color:var(--navy2);}
+.bb{background:#e6eaf5;color:var(--navy2);}
 .ba{background:var(--gold-light);color:var(--gold);}
 .br{background:var(--red-light);color:var(--red);}
 .bx{background:var(--paper2);color:var(--ink2);}
@@ -158,50 +182,61 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 .t-ok{background:var(--green-light);color:var(--green);border:1px solid rgba(26,92,58,0.2);}
 .t-err{background:var(--red-light);color:var(--red);border:1px solid rgba(139,32,32,0.2);}
 
-/* Project selector */
-.project-selector{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
-.proj-chip{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border2);background:var(--paper);cursor:pointer;font-size:12.5px;font-family:'Inter',sans-serif;color:var(--ink2);transition:all 0.15s;font-weight:500;}
-.proj-chip.active{border-color:var(--navy);background:var(--navy);color:white;}
+/* History - folder tree */
+.student-folder{background:white;border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow);}
+.student-folder-header{background:var(--navy);color:white;padding:12px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;user-select:none;}
+.student-folder-header:hover{background:var(--navy2);}
+.student-folder-icon{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0;}
+.student-folder-name{font-size:15px;font-weight:600;font-family:'Playfair Display',serif;}
+.student-folder-meta{font-size:11px;color:rgba(255,255,255,0.5);margin-top:1px;}
+.student-folder-chevron{margin-left:auto;font-size:12px;color:rgba(255,255,255,0.5);transition:transform 0.2s;}
+.student-folder-chevron.open{transform:rotate(90deg);}
+.student-folder-body{display:none;padding:12px;}
+.student-folder-body.open{display:block;}
 
-/* Entry cards */
-.e-card{background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:10px;cursor:pointer;transition:box-shadow 0.15s;border-left:3px solid var(--teal);}
-.e-card:hover{box-shadow:var(--shadow);}
-.e-card.failed{border-left-color:var(--red);}
-.e-card.completed{border-left-color:var(--green);}
-.e-card.pending{border-left-color:var(--gold);}
-.e-name{font-size:14.5px;font-weight:600;line-height:1.3;font-family:'Playfair Display',serif;}
-.e-proj{font-size:11px;color:var(--teal);font-weight:600;margin-top:3px;text-transform:uppercase;letter-spacing:0.05em;}
-.e-meta{font-size:11px;color:var(--ink3);margin-top:4px;}
-.e-excerpt{font-size:13px;color:var(--ink2);margin-top:8px;line-height:1.5;}
-.e-detail{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
-.e-detail.open{display:block;}
-.d-block{font-size:13px;margin-bottom:10px;}
+.project-folder{margin-bottom:10px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.project-folder-header{background:var(--paper2);padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:8px;user-select:none;}
+.project-folder-header:hover{background:var(--paper3);}
+.project-folder-icon{font-size:14px;}
+.project-folder-name{font-size:13px;font-weight:600;color:var(--ink);flex:1;}
+.project-folder-count{font-size:11px;color:var(--ink3);}
+.project-folder-chevron{font-size:11px;color:var(--ink3);transition:transform 0.2s;}
+.project-folder-chevron.open{transform:rotate(90deg);}
+.project-folder-body{display:none;background:white;}
+.project-folder-body.open{display:block;}
+
+.exp-item{padding:10px 14px;border-top:1px solid var(--border);cursor:pointer;transition:background 0.1s;}
+.exp-item:hover{background:var(--paper);}
+.exp-item:first-child{border-top:none;}
+.exp-date{font-size:10px;color:var(--ink3);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;}
+.exp-title{font-size:13.5px;font-weight:500;color:var(--ink);}
+.exp-status{margin-top:4px;}
+.exp-detail{display:none;background:var(--paper);padding:12px 14px;border-top:1px solid var(--border);}
+.exp-detail.open{display:block;}
+.d-block{font-size:13px;margin-bottom:9px;}
 .d-lbl{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);margin-bottom:2px;font-weight:700;}
-.d-val{color:var(--ink);line-height:1.5;}
+.d-val{color:var(--ink);line-height:1.55;}
 .d-link{color:var(--teal);text-decoration:underline;word-break:break-all;}
-.d-files{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
-.d-file-chip{display:flex;align-items:center;gap:5px;background:var(--paper2);border-radius:var(--radius);padding:4px 10px;font-size:11px;color:var(--ink2);}
+.d-imgs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.d-img{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);}
+.d-img img{width:90px;height:70px;object-fit:cover;display:block;}
+.d-img-cap{font-size:10px;color:var(--ink3);padding:3px 6px;background:white;}
+.d-files{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.d-file-chip{display:flex;align-items:center;gap:4px;background:var(--paper2);border-radius:20px;padding:3px 10px;font-size:11px;color:var(--ink2);}
 
 /* Stats */
 .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}
 .stat-box{background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px;border-top:2px solid var(--teal);}
 .stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);margin-bottom:4px;font-weight:700;}
-.stat-val{font-family:'Playfair Display',serif;font-size:30px;color:var(--ink);}
+.stat-val{font-family:'Playfair Display',serif;font-size:28px;color:var(--ink);}
 
-/* Email box */
-.email-box{background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;}
-.email-hdr{background:var(--paper2);border-bottom:1px solid var(--border);padding:12px 16px;}
-.email-row{display:flex;gap:8px;font-size:12px;margin-bottom:5px;align-items:flex-start;}
-.email-row:last-child{margin-bottom:0;}
-.email-rl{color:var(--ink3);min-width:46px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding-top:2px;}
-.email-body{padding:16px;font-size:13px;color:var(--ink2);line-height:1.75;white-space:pre-wrap;}
-.email-to-tags{display:flex;flex-wrap:wrap;gap:5px;flex:1;}
-.email-to-tag{background:var(--teal-light);color:var(--teal);padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500;display:flex;align-items:center;gap:4px;}
-.email-to-tag button{background:none;border:none;color:var(--teal);cursor:pointer;font-size:13px;line-height:1;padding:0;}
-.add-email-row{display:flex;gap:8px;align-items:center;margin-top:8px;}
-.add-email-input{flex:1;border:1.5px solid var(--border2);border-radius:20px;padding:6px 12px;font-size:12px;font-family:'Inter',sans-serif;color:var(--ink);outline:none;background:white;}
-.add-email-input:focus{border-color:var(--teal);}
-.add-email-btn{background:var(--teal);color:white;border:none;border-radius:20px;padding:6px 14px;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;white-space:nowrap;}
+/* Summary email preview */
+.email-preview-box{background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:14px;}
+.email-preview-hdr{background:var(--paper2);border-bottom:1px solid var(--border);padding:12px 16px;}
+.email-preview-row{display:flex;gap:8px;font-size:12px;margin-bottom:4px;align-items:flex-start;}
+.email-preview-row:last-child{margin-bottom:0;}
+.email-preview-rl{color:var(--ink3);min-width:46px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding-top:1px;}
+.email-preview-body{padding:16px;font-size:13px;color:var(--ink2);line-height:1.75;white-space:pre-wrap;max-height:200px;overflow-y:auto;}
 
 /* AI chip */
 .ai-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;background:var(--teal-light);color:var(--teal);padding:3px 9px;border-radius:20px;font-weight:600;margin-left:8px;vertical-align:middle;}
@@ -213,11 +248,7 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 .tab-btn{flex:1;padding:9px 8px;border:none;background:transparent;cursor:pointer;border-radius:var(--radius);font-size:13px;font-weight:500;color:var(--ink3);font-family:'Inter',sans-serif;}
 .tab-btn.active{background:white;color:var(--navy);box-shadow:0 1px 4px rgba(15,31,61,0.1);font-weight:600;}
 
-/* Filters */
-.filter-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
-.filter-row input,.filter-row select{flex:1;min-width:110px;border:1.5px solid var(--border2);border-radius:var(--radius);padding:8px 12px;font-size:13.5px;font-family:'Inter',sans-serif;background:white;color:var(--ink);outline:none;}
-
-/* Settings */
+/* Settings rows */
 .s-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);}
 .s-row:last-child{border-bottom:none;}
 .s-lbl{font-size:14px;font-weight:500;}
@@ -229,6 +260,8 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 
 .empty{text-align:center;padding:48px 20px;color:var(--ink3);font-size:14px;line-height:1.6;}
 .pi-banner{background:var(--navy);color:white;padding:10px 16px;border-radius:var(--radius);margin-bottom:14px;font-size:13px;font-weight:500;}
+.filter-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.filter-row input{flex:1;min-width:110px;border:1.5px solid var(--border2);border-radius:var(--radius);padding:8px 12px;font-size:13.5px;font-family:'Inter',sans-serif;background:white;color:var(--ink);outline:none;}
 
 /* Bottom nav */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--navy);display:flex;padding-bottom:env(safe-area-inset-bottom);border-top:1px solid rgba(255,255,255,0.08);}
@@ -244,7 +277,7 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 <div id="auth-screen">
   <div class="auth-box">
     <div class="auth-logo">Vascular Systems Bioengineering Lab</div>
-    <div class="auth-sub">Lab Notebook · Technion – Israel Institute of Technology</div>
+    <div class="auth-sub">Lab Notebook &nbsp;·&nbsp; Technion – Israel Institute of Technology</div>
     <div class="auth-tabs">
       <button class="auth-tab active" onclick="setAuthTab('login')">Sign in</button>
       <button class="auth-tab" onclick="setAuthTab('signup')">Sign up</button>
@@ -269,7 +302,7 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 
 <!-- Desktop sidebar -->
 <aside class="desktop-sidebar">
-  <div class="accent-bar"></div>
+  <div class="sidebar-top"></div>
   <div class="sidebar-logo">
     <div class="logo-name">Vascular Systems<br>Bioengineering Lab</div>
     <div class="logo-sub">Lab Notebook</div>
@@ -281,13 +314,13 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
       Log experiment
     </button>
     <button class="snav-btn" onclick="nav('entries')">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h8M2 12h10"/></svg>
-      History
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2h4v4H2zM10 2h4v4h-4zM2 10h4v4H2zM10 10h4v4h-4z"/></svg>
+      My folders
       <span class="snav-badge" id="nav-badge-d" style="display:none">0</span>
     </button>
     <button class="snav-btn" onclick="nav('summary')">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2h12v3H2z"/><path d="M2 7h5v7H2z"/><path d="M9 7h5v3H9z"/><path d="M9 12h5v2H9z"/></svg>
-      Daily summary
+      PI summary
     </button>
     <button class="snav-btn" onclick="nav('settings')">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M3.2 12.8l1.4-1.4M11.4 4.6l1.4-1.4"/></svg>
@@ -302,35 +335,42 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
 
 <div class="main-area">
 
-<!-- LOG -->
+<!-- ── LOG PANEL ── -->
 <div id="panel-log" class="panel active">
   <div class="topbar">
-    <div class="accent-bar" style="position:absolute;top:0;left:0;right:0;"></div>
-    <div style="padding-top:8px">
-      <div class="topbar-title">Log Experiment</div>
-      <div class="topbar-sub" id="today-label"></div>
-      <div class="user-chip" id="user-chip-top">
-        <div class="user-avatar" id="user-avatar-top"></div>
-        <span id="user-name-top"></span>
-        <span class="pi-chip" id="pi-badge" style="display:none">PI</span>
-        <button class="logout-btn" onclick="logout()">Sign out</button>
-      </div>
+    <div class="topbar-title">Log Experiment</div>
+    <div class="topbar-sub" id="today-label"></div>
+    <div class="user-chip">
+      <div class="user-avatar" id="user-avatar-top"></div>
+      <span id="user-name-top"></span>
+      <span class="pi-chip" id="pi-badge" style="display:none">PI</span>
+      <button class="logout-btn" onclick="logout()">Sign out</button>
     </div>
   </div>
   <div class="content">
+
+    <!-- Project folder selector -->
+    <div class="card">
+      <div class="card-title">Project folder</div>
+      <div class="folder-nav">
+        <div class="folder-header">
+          <span class="folder-title">Select or create a project</span>
+        </div>
+        <div class="folders-row" id="folders-row"></div>
+        <div class="new-folder-row" id="new-folder-row" style="display:none">
+          <input class="new-folder-input" id="new-folder-input" type="text" placeholder="New project name…"/>
+          <button class="new-folder-btn" onclick="createFolder()">Create</button>
+          <button class="new-folder-btn" style="background:var(--paper3);color:var(--ink2)" onclick="cancelNewFolder()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experiment details -->
     <div class="card">
       <div class="card-title">Experiment info</div>
-      <div class="row2" style="margin-bottom:14px">
-        <div class="field"><label>Researcher</label><input id="f-name" type="text" readonly style="opacity:0.6;cursor:default"/></div>
-        <div class="field"><label>Date</label><input id="f-date" type="date"/></div>
-      </div>
       <div class="field"><label>Experiment title</label><input id="f-exp" type="text" placeholder="e.g. Cardiac differentiation D8 — chip #3 assessment"/></div>
-      <div class="field">
-        <label>Project</label>
-        <div class="project-selector" id="proj-selector"></div>
-        <input id="f-project-custom" type="text" placeholder="Or type a new project name…" style="margin-top:8px"/>
-      </div>
-      <div class="row2" style="margin-top:4px">
+      <div class="row2">
+        <div class="field"><label>Date</label><input id="f-date" type="date"/></div>
         <div class="field"><label>Status</label>
           <select id="f-status">
             <option value="completed">Completed</option>
@@ -339,25 +379,25 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
             <option value="pending">Pending analysis</option>
           </select>
         </div>
-        <div class="field">
-          <label>NetApp / Raw data path</label>
-          <input id="f-netapp" type="text" placeholder="\\netapp\lab\experiments\…"/>
-          <div class="field-hint">Network path to raw data folder</div>
-        </div>
+      </div>
+      <div class="field">
+        <label>NetApp / Raw data path</label>
+        <input id="f-netapp" type="text" placeholder="\\netapp\lab\experiments\…"/>
+        <div class="field-hint">Network path to the raw data folder for this experiment</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title">Hypothesis &amp; protocol</div>
       <div class="field"><label>Hypothesis</label><textarea id="f-hyp" placeholder="What are you testing and what do you expect?"></textarea></div>
-      <div class="field"><label>Protocol / method</label><textarea id="f-protocol" placeholder="Protocol name or step summary. Note any deviations from standard procedure."></textarea></div>
+      <div class="field"><label>Protocol / method</label><textarea id="f-protocol" placeholder="Protocol name or step summary. Note any deviations."></textarea></div>
     </div>
 
     <div class="card">
       <div class="card-title">Samples &amp; reagents</div>
       <div class="field"><label>Sample IDs / conditions</label><textarea id="f-samples" placeholder="e.g. hiPSC-CM day 8, WT vs KO, chip #3" style="min-height:64px"></textarea></div>
       <div class="field"><label>Key reagents &amp; lot numbers</label><textarea id="f-reagents" placeholder="Antibody lots, kit versions, batch numbers" style="min-height:64px"></textarea></div>
-      <div class="field"><label>Measurements / quantitative data</label><textarea id="f-measurements" placeholder="OD values, impedance readings, flow rates, Ct values, cell counts…"></textarea></div>
+      <div class="field"><label>Measurements / quantitative data</label><textarea id="f-measurements" placeholder="OD values, impedance, flow rates, Ct values, cell counts…"></textarea></div>
     </div>
 
     <div class="card">
@@ -378,7 +418,7 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
     <div class="card">
       <div class="card-title">Files &amp; attachments</div>
       <div class="drop-zone" id="dz" onclick="document.getElementById('file-input').click()" ondragover="dzOver(event)" ondragleave="dzLeave(event)" ondrop="dzDrop(event)">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 3v18M9 14l7-7 7 7"/><path d="M5 24h22"/><path d="M5 24v4h22v-4"/></svg>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 4v18M9 14l7-7 7 7"/><rect x="4" y="24" width="24" height="4" rx="1"/></svg>
         <div class="dz-text">Tap to attach files</div>
         <div class="dz-sub">Images, Excel, CSV, PDF, Word — any file type</div>
       </div>
@@ -392,46 +432,53 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
       <div class="field"><label>Additional notes</label><textarea id="f-notes" placeholder="Equipment issues, collaborator notes, chip observations…"></textarea></div>
     </div>
 
-    <button class="btn btn-primary btn-full" onclick="submitEntry()">Submit Entry</button>
+    <!-- Email recipients -->
+    <div class="card">
+      <div class="card-title">Send report to</div>
+      <div class="email-recipients">
+        <div class="email-to-tags" id="email-to-tags">
+          <span class="email-to-tag fixed">landaulevilab@gmail.com (PI)</span>
+        </div>
+        <div class="add-email-row">
+          <input class="add-email-input" id="add-email-input" type="email" placeholder="Add another recipient email…" onkeydown="addEmailOnEnter(event)"/>
+          <button class="add-email-btn" onclick="addExtraEmail()">+ Add</button>
+        </div>
+      </div>
+      <div class="field-hint" style="margin-top:6px">A full experiment report (including all details, images and files) will be emailed immediately on submit.</div>
+    </div>
+
+    <button class="btn btn-teal btn-full" onclick="submitEntry()" style="margin-bottom:4px">Submit &amp; send report</button>
     <div id="log-toast" class="toast"></div>
   </div>
 </div>
 
-<!-- HISTORY -->
+<!-- ── FOLDERS PANEL ── -->
 <div id="panel-entries" class="panel">
   <div class="topbar">
-    <div class="accent-bar" style="position:absolute;top:0;left:0;right:0;"></div>
-    <div style="padding-top:8px">
-      <div class="topbar-title">Experiment History</div>
-      <div class="topbar-sub" id="entries-sub"></div>
-    </div>
+    <div class="topbar-title">My Folders</div>
+    <div class="topbar-sub" id="entries-sub"></div>
   </div>
   <div class="content">
-    <div id="pi-banner" class="pi-banner" style="display:none">PI View — all lab members' entries are visible</div>
     <div class="tab-row" id="history-tabs">
       <button class="tab-btn active" onclick="setHistoryTab('mine')">My entries</button>
-      <button class="tab-btn" onclick="setHistoryTab('today')">Today — all members</button>
+      <button class="tab-btn" onclick="setHistoryTab('all')" id="all-tab" style="display:none">All members (PI)</button>
     </div>
     <div class="filter-row">
-      <input type="text" id="filter-name" placeholder="Filter by researcher…" oninput="renderEntries()"/>
-      <input type="text" id="filter-proj" placeholder="Filter by project…" oninput="renderEntries()"/>
-      <input type="date" id="filter-date" oninput="renderEntries()"/>
+      <input type="text" id="filter-search" placeholder="Search experiments…" oninput="renderFolderTree()"/>
+      <input type="date" id="filter-date" oninput="renderFolderTree()"/>
     </div>
-    <div id="entries-list"></div>
+    <div id="folder-tree"></div>
   </div>
 </div>
 
-<!-- SUMMARY -->
+<!-- ── SUMMARY PANEL ── -->
 <div id="panel-summary" class="panel">
   <div class="topbar">
-    <div class="accent-bar" style="position:absolute;top:0;left:0;right:0;"></div>
-    <div style="padding-top:8px">
-      <div class="topbar-title">Daily Summary <span class="ai-chip" id="ai-chip" style="display:none"><span class="spin"></span> Generating</span></div>
-      <div class="topbar-sub" id="summary-date"></div>
-      <div class="topbar-actions">
-        <button class="btn btn-ghost" style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2)" onclick="generateSummary()">Regenerate</button>
-        <button class="btn btn-primary" style="padding:8px 14px;font-size:12px;background:var(--teal)" onclick="sendSummary()">Send email</button>
-      </div>
+    <div class="topbar-title">PI Summary <span class="ai-chip" id="ai-chip" style="display:none"><span class="spin"></span> AI</span></div>
+    <div class="topbar-sub" id="summary-date"></div>
+    <div class="topbar-actions">
+      <button class="btn btn-ghost" style="padding:8px 14px;font-size:12px;color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2)" onclick="generateSummary()">Regenerate</button>
+      <button class="btn btn-teal" style="padding:8px 14px;font-size:12px" onclick="sendDailySummary()">Send summary</button>
     </div>
   </div>
   <div class="content">
@@ -441,34 +488,22 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
       <div class="stat-box"><div class="stat-lbl">Completed</div><div class="stat-val" id="s-done">0</div></div>
       <div class="stat-box"><div class="stat-lbl">Files</div><div class="stat-val" id="s-files">0</div></div>
     </div>
-    <div class="email-box" style="margin-bottom:14px">
-      <div class="email-hdr">
-        <div class="email-row">
-          <span class="email-rl">To</span>
-          <div class="email-to-tags" id="email-to-tags">
-            <span class="email-to-tag">landaulevilab@gmail.com</span>
-          </div>
-        </div>
-        <div class="add-email-row">
-          <input class="add-email-input" id="add-email-input" type="email" placeholder="Add recipient email…" onkeydown="addEmailOnEnter(event)"/>
-          <button class="add-email-btn" onclick="addExtraEmail()">+ Add</button>
-        </div>
-        <div class="email-row" style="margin-top:8px"><span class="email-rl">Subject</span><span id="e-subj" style="color:var(--ink);font-size:12px"></span></div>
+    <div class="email-preview-box">
+      <div class="email-preview-hdr">
+        <div class="email-preview-row"><span class="email-preview-rl">To</span><span style="font-size:12px;color:var(--ink)">landaulevilab@gmail.com</span></div>
+        <div class="email-preview-row"><span class="email-preview-rl">Subject</span><span id="e-subj" style="font-size:12px;color:var(--ink)"></span></div>
       </div>
-      <div class="email-body" id="e-body">Tap "Regenerate" to generate today's AI summary.</div>
+      <div class="email-preview-body" id="e-body">Tap "Regenerate" to generate today's AI summary.</div>
     </div>
     <div id="summary-toast" class="toast"></div>
   </div>
 </div>
 
-<!-- SETTINGS -->
+<!-- ── SETTINGS PANEL ── -->
 <div id="panel-settings" class="panel">
   <div class="topbar">
-    <div class="accent-bar" style="position:absolute;top:0;left:0;right:0;"></div>
-    <div style="padding-top:8px">
-      <div class="topbar-title">Settings</div>
-      <div class="topbar-sub">Account &amp; preferences</div>
-    </div>
+    <div class="topbar-title">Settings</div>
+    <div class="topbar-sub">Account &amp; preferences</div>
   </div>
   <div class="content">
     <div class="card">
@@ -483,41 +518,20 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
       <button class="btn btn-primary" style="margin-top:8px;width:100%" onclick="saveName()">Save name</button>
       <div id="name-toast" class="toast"></div>
     </div>
-    <div class="card">
-      <div class="card-title">My projects</div>
-      <div class="field">
-        <label>Project names (comma-separated)</label>
-        <input id="s-projects" type="text" placeholder="e.g. Chip vascularization, Cardiac diff., HUVEC co-culture"/>
-        <div class="field-hint">These appear as quick-select buttons in the log form</div>
-      </div>
-      <button class="btn btn-primary" style="margin-top:8px;width:100%" onclick="saveProjects()">Save projects</button>
-      <div id="proj-toast" class="toast"></div>
-    </div>
-    <div class="card">
-      <div class="card-title">Email report options</div>
-      <div class="s-row">
-        <div><div class="s-lbl">Include files in email</div><div class="s-desc">Embed images; list other attached files</div></div>
-        <button class="toggle on" id="t-files" onclick="this.classList.toggle('on')"></button>
-      </div>
-      <div class="s-row">
-        <div><div class="s-lbl">Full experiment details</div><div class="s-desc">Include all fields in email, not just summary</div></div>
-        <button class="toggle on" id="t-full" onclick="this.classList.toggle('on')"></button>
-      </div>
-    </div>
   </div>
 </div>
 
 </div><!-- /main-area -->
 
-<!-- Mobile bottom nav -->
+<!-- Mobile nav -->
 <nav class="bottom-nav">
   <button class="nav-btn active" onclick="nav('log')">
     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="2"/><line x1="7" y1="7" x2="13" y2="7"/><line x1="7" y1="10" x2="13" y2="10"/><line x1="7" y1="13" x2="10" y2="13"/></svg>
     Log
   </button>
   <button class="nav-btn" onclick="nav('entries')">
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h14M3 10h9M3 15h11"/></svg>
-    History
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h6v6H3zM11 3h6v6h-6zM3 11h6v6H3zM11 11h6v6h-6z"/></svg>
+    Folders
     <span class="n-badge" id="nav-badge-m" style="display:none">0</span>
   </button>
   <button class="nav-btn" onclick="nav('summary')">
@@ -530,7 +544,7 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);min
   </button>
 </nav>
 
-</div></div>
+</div></div><!-- /app /app-screen -->
 
 <script>
 const SUPABASE_URL='https://jciokuuijnlwlwpsimmm.supabase.co';
@@ -539,8 +553,10 @@ const PI_EMAIL='landaulevilab@gmail.com';
 
 let currentUser=null,userToken=null,userName='',isPI=false;
 let allEntries=[],currentFiles=[],selectedRating='',historyTab='mine';
-let extraEmails=[],authMode='login',userProjects=[],selectedProject='';
+let extraEmails=[],authMode='login';
+let userFolders=[],selectedFolder='';
 
+// ── AUTH ─────────────────────────────────────────────────────────────────────
 function setAuthTab(m){
   authMode=m;
   document.querySelectorAll('.auth-tab').forEach(function(b,i){b.classList.toggle('active',['login','signup'][i]===m);});
@@ -560,37 +576,37 @@ async function handleAuth(){
   if(authMode==='signup'&&!name){msg.textContent='Please enter your name.';msg.className='auth-msg err';return;}
   document.getElementById('auth-submit-btn').textContent='Please wait…';
   try{
-    var endpoint=authMode==='signup'?'/auth/v1/signup':'/auth/v1/token?grant_type=password';
-    var body=authMode==='signup'?{email:email,password:pass,data:{full_name:name}}:{email:email,password:pass};
-    var res=await fetch(SUPABASE_URL+endpoint,{method:'POST',headers:{'apikey':SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});
+    var ep=authMode==='signup'?'/auth/v1/signup':'/auth/v1/token?grant_type=password';
+    var body=authMode==='signup'?{email,password:pass,data:{full_name:name}}:{email,password:pass};
+    var res=await fetch(SUPABASE_URL+ep,{method:'POST',headers:{'apikey':SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});
     var data=await res.json();
     if(data.error||data.error_code)throw new Error(data.error_description||data.msg||'Authentication failed');
     if(authMode==='signup'){
-      msg.textContent='Account created! Check your email to confirm, then sign in.';
-      msg.className='auth-msg ok';setAuthTab('login');
+      msg.textContent='Account created! Check your email to confirm, then sign in.';msg.className='auth-msg ok';setAuthTab('login');
     }else{
       userToken=data.access_token;currentUser=data.user;
       userName=(currentUser.user_metadata&&currentUser.user_metadata.full_name)||currentUser.email.split('@')[0];
       isPI=currentUser.email===PI_EMAIL;
-      if(document.getElementById('stay-signed-in').checked){
-        localStorage.setItem('lab_session',JSON.stringify({token:data.access_token,user:data.user,userName:userName}));
-      }else{localStorage.removeItem('lab_session');}
+      if(document.getElementById('stay-signed-in').checked)
+        localStorage.setItem('lab_session',JSON.stringify({token:data.access_token,user:data.user,userName}));
+      else localStorage.removeItem('lab_session');
       onLogin();
     }
-  }catch(e){msg.textContent=e.message||'Something went wrong. Please try again.';msg.className='auth-msg err';}
+  }catch(e){msg.textContent=e.message||'Something went wrong.';msg.className='auth-msg err';}
   document.getElementById('auth-submit-btn').textContent=authMode==='signup'?'Create account':'Sign in';
 }
 
 async function forgotPassword(){
   var email=document.getElementById('a-email').value.trim();
   var msg=document.getElementById('auth-msg');
-  if(!email){msg.textContent='Enter your email address above first.';msg.className='auth-msg err';return;}
+  if(!email){msg.textContent='Enter your email above first.';msg.className='auth-msg err';return;}
   try{
-    await fetch(SUPABASE_URL+'/auth/v1/recover',{method:'POST',headers:{'apikey':SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify({email:email,redirect_to:'https://shiralandau.github.io/lab-notebook'})});
-    msg.textContent='Password reset email sent to '+email+'. Check your inbox.';msg.className='auth-msg ok';
+    await fetch(SUPABASE_URL+'/auth/v1/recover',{method:'POST',headers:{'apikey':SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify({email,redirect_to:'https://shiralandau.github.io/lab-notebook'})});
+    msg.textContent='Reset email sent to '+email+'. Check your inbox.';msg.className='auth-msg ok';
   }catch(e){msg.textContent='Could not send reset email.';msg.className='auth-msg err';}
 }
 
+// Auto-login
 (function(){
   try{
     var s=JSON.parse(localStorage.getItem('lab_session')||'null');
@@ -599,9 +615,8 @@ async function forgotPassword(){
       userName=s.userName||(s.user.user_metadata&&s.user.user_metadata.full_name)||s.user.email.split('@')[0];
       isPI=s.user.email===PI_EMAIL;
       fetch(SUPABASE_URL+'/auth/v1/user',{headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+s.token}})
-        .then(function(r){return r.json();})
-        .then(function(d){if(d.id){onLogin();}else{localStorage.removeItem('lab_session');}})
-        .catch(function(){localStorage.removeItem('lab_session');});
+        .then(r=>r.json()).then(d=>{if(d.id)onLogin();else localStorage.removeItem('lab_session');})
+        .catch(()=>localStorage.removeItem('lab_session'));
     }
   }catch(e){}
 })();
@@ -609,20 +624,21 @@ async function forgotPassword(){
 function onLogin(){
   document.getElementById('auth-screen').style.display='none';
   document.getElementById('app-screen').style.display='block';
-  document.getElementById('f-name').value=userName;
-  document.getElementById('s-myname').value=userName;
   document.getElementById('user-name-top').textContent=userName;
   document.getElementById('user-avatar-top').textContent=userName.charAt(0).toUpperCase();
   document.getElementById('set-name-lbl').textContent=userName;
   document.getElementById('set-email-lbl').textContent=currentUser.email;
-  document.getElementById('set-role-lbl').textContent=isPI?'PI — can view all lab members\' entries':'Lab member — can view own entries only';
+  document.getElementById('set-role-lbl').textContent=isPI?'PI — can view all entries':'Lab member — can view own entries only';
   document.getElementById('sidebar-user-name').textContent=userName;
-  if(isPI){document.getElementById('pi-banner').style.display='block';document.getElementById('pi-badge').style.display='inline';}
-  try{var sp=localStorage.getItem('lab_projects_'+currentUser.id);if(sp){userProjects=JSON.parse(sp);}document.getElementById('s-projects').value=userProjects.join(', ');}catch(e){}
+  document.getElementById('s-myname').value=userName;
+  if(isPI){document.getElementById('pi-badge').style.display='inline';document.getElementById('all-tab').style.display='block';}
+  // Load saved folders
+  try{var sf=localStorage.getItem('lab_folders_'+currentUser.id);if(sf)userFolders=JSON.parse(sf);}catch(e){}
   var today=new Date();
   document.getElementById('f-date').value=today.toISOString().split('T')[0];
   document.getElementById('today-label').textContent=today.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  renderProjectSelector();loadEntries();
+  renderFolderSelector();
+  loadEntries();
 }
 
 function logout(){
@@ -634,6 +650,7 @@ function logout(){
   document.getElementById('auth-msg').className='auth-msg';
 }
 
+// ── DB ────────────────────────────────────────────────────────────────────────
 async function dbFetch(path,opts){
   var res=await fetch(SUPABASE_URL+'/rest/v1/'+path,Object.assign({},opts,{
     headers:Object.assign({'apikey':SUPABASE_KEY,'Authorization':'Bearer '+(userToken||SUPABASE_KEY),'Content-Type':'application/json','Prefer':'return=representation'},(opts&&opts.headers)||{})
@@ -646,200 +663,82 @@ async function loadEntries(){
   try{allEntries=await dbFetch('entries?order=created_at.desc&limit=300');updateBadge();}catch(e){console.error(e);}
 }
 
+// ── NAV ───────────────────────────────────────────────────────────────────────
 function nav(page){
-  document.querySelectorAll('.nav-btn,.snav-btn').forEach(function(b){
-    b.classList.toggle('active',(b.getAttribute('onclick')||'').includes("'"+page+"'"));
-  });
-  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-btn,.snav-btn').forEach(b=>b.classList.toggle('active',(b.getAttribute('onclick')||'').includes("'"+page+"'")));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+page).classList.add('active');
   window.scrollTo(0,0);
-  if(page==='entries'){loadEntries().then(renderEntries);}
-  if(page==='summary'){loadEntries().then(function(){renderSummaryMeta();});}
+  if(page==='entries'){loadEntries().then(renderFolderTree);}
+  if(page==='summary'){loadEntries().then(renderSummaryMeta);}
 }
 
 function todayStr(){return new Date().toISOString().split('T')[0];}
-function todayEntries(){return allEntries.filter(function(e){return e.date===todayStr();});}
+function todayEntries(){return allEntries.filter(e=>e.date===todayStr());}
 function updateBadge(){
-  var n=allEntries.filter(function(e){return e.date===todayStr()&&e.member_name===userName;}).length;
-  ['nav-badge-m','nav-badge-d'].forEach(function(id){var b=document.getElementById(id);if(!b)return;b.style.display=n?'inline-flex':'none';b.textContent=n;});
+  var n=allEntries.filter(e=>e.date===todayStr()&&e.member_name===userName).length;
+  ['nav-badge-m','nav-badge-d'].forEach(id=>{var b=document.getElementById(id);if(b){b.style.display=n?'inline-flex':'none';b.textContent=n;}});
 }
 
-function renderProjectSelector(){
-  var sel=document.getElementById('proj-selector');if(!sel)return;
-  sel.innerHTML=userProjects.map(function(p){
-    return'<button class="proj-chip'+(selectedProject===p?' active':'')+'" onclick="selectProject(\''+p.replace(/'/g,"\\'")+'\')">'+p+'</button>';
-  }).join('');
-}
-function selectProject(p){selectedProject=p;document.getElementById('f-project-custom').value='';renderProjectSelector();}
-function saveProjects(){
-  var raw=document.getElementById('s-projects').value;
-  userProjects=raw.split(',').map(function(p){return p.trim();}).filter(Boolean);
-  try{localStorage.setItem('lab_projects_'+currentUser.id,JSON.stringify(userProjects));}catch(e){}
-  renderProjectSelector();showToast('proj-toast','Projects saved!','ok');
+// ── FOLDERS ───────────────────────────────────────────────────────────────────
+function renderFolderSelector(){
+  var row=document.getElementById('folders-row');
+  row.innerHTML=userFolders.map(f=>`<button class="folder-btn${selectedFolder===f?' active':''}" onclick="selectFolder('${f.replace(/'/g,"\\'")}')">
+    <svg viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 3a1 1 0 011-1h3.5l1.5 2H13a1 1 0 011 1v6a1 1 0 01-1 1H2a1 1 0 01-1-1V3z"/></svg>${f}
+  </button>`).join('')+
+  `<button class="folder-btn add-folder" onclick="showNewFolder()">+ New project</button>`;
 }
 
-function setRating(r){
-  selectedRating=r;
-  document.querySelectorAll('.r-btn').forEach(function(b){
-    var t=b.textContent.toLowerCase();
-    b.classList.toggle('active',t===r||(t==='ok'&&r==='acceptable'));
-  });
+function selectFolder(f){selectedFolder=f;renderFolderSelector();}
+
+function showNewFolder(){
+  document.getElementById('new-folder-row').style.display='flex';
+  document.getElementById('new-folder-input').focus();
+}
+function cancelNewFolder(){document.getElementById('new-folder-row').style.display='none';document.getElementById('new-folder-input').value='';}
+
+function createFolder(){
+  var name=document.getElementById('new-folder-input').value.trim();
+  if(!name)return;
+  if(!userFolders.includes(name)){userFolders.push(name);saveFolders();}
+  selectFolder(name);
+  cancelNewFolder();
 }
 
+function saveFolders(){
+  try{localStorage.setItem('lab_folders_'+currentUser.id,JSON.stringify(userFolders));}catch(e){}
+  renderFolderSelector();
+}
+
+// ── FILES ─────────────────────────────────────────────────────────────────────
 function dzOver(e){e.preventDefault();document.getElementById('dz').classList.add('drag');}
 function dzLeave(){document.getElementById('dz').classList.remove('drag');}
 function dzDrop(e){e.preventDefault();dzLeave();handleFiles(e.dataTransfer.files);}
-function fileIcon(name){
-  var n=name.toLowerCase();
-  if(/\.(jpg|jpeg|png|gif|webp|tiff|bmp)$/.test(n))return{emoji:'🖼',cls:'img'};
-  if(/\.(xlsx|xls|csv)$/.test(n))return{emoji:'📊',cls:'xls'};
-  if(/\.(docx|doc)$/.test(n))return{emoji:'📄',cls:'doc'};
-  if(/\.pdf$/.test(n))return{emoji:'📋',cls:'doc'};
-  return{emoji:'📎',cls:'other'};
-}
+function fileIcon(name){var n=name.toLowerCase();if(/\.(jpg|jpeg|png|gif|webp|bmp|tiff)$/.test(n))return'🖼';if(/\.(xlsx|xls|csv)$/.test(n))return'📊';if(/\.(docx|doc)$/.test(n))return'📄';if(/\.pdf$/.test(n))return'📋';return'📎';}
 function isImage(name){return/\.(jpg|jpeg|png|gif|webp|bmp)$/i.test(name);}
 function handleFiles(files){
-  Array.from(files).forEach(function(file){
-    var reader=new FileReader();
-    reader.onload=function(ev){currentFiles.push({name:file.name,size:file.size,data:ev.target.result,caption:'',isImg:isImage(file.name)});renderFileList();};
-    reader.readAsDataURL(file);
+  Array.from(files).forEach(file=>{
+    var r=new FileReader();
+    r.onload=ev=>{currentFiles.push({name:file.name,size:file.size,data:ev.target.result,caption:'',isImg:isImage(file.name)});renderFileList();};
+    r.readAsDataURL(file);
   });
 }
 function renderFileList(){
   var list=document.getElementById('file-list');
   if(!currentFiles.length){list.innerHTML='';return;}
-  list.innerHTML=currentFiles.map(function(f,i){
-    var ic=fileIcon(f.name);
-    var sz=f.size>1048576?(f.size/1048576).toFixed(1)+'MB':(f.size/1024).toFixed(0)+'KB';
-    return'<div class="file-item">'+
-      (f.isImg?'<img src="'+f.data+'" class="file-preview" alt=""/>':'<div class="file-icon">'+ic.emoji+'</div>')+
-      '<div class="file-info"><div class="file-name">'+f.name+'</div><div class="file-size">'+sz+'</div>'+
-      '<input class="file-cap" placeholder="Caption…" value="'+f.caption+'" oninput="currentFiles['+i+'].caption=this.value"/></div>'+
-      '<button class="file-del" onclick="removeFile('+i+')">✕</button></div>';
-  }).join('');
+  list.innerHTML=currentFiles.map((f,i)=>`<div class="file-item">
+    ${f.isImg?`<img src="${f.data}" class="file-preview" alt=""/>`:`<div class="file-icon">${fileIcon(f.name)}</div>`}
+    <div class="file-info">
+      <div class="file-name">${f.name}</div>
+      <div class="file-size">${f.size>1048576?(f.size/1048576).toFixed(1)+'MB':(f.size/1024).toFixed(0)+'KB'}</div>
+      <input class="file-cap" placeholder="Caption…" value="${f.caption}" oninput="currentFiles[${i}].caption=this.value"/>
+    </div>
+    <button class="file-del" onclick="removeFile(${i})">✕</button>
+  </div>`).join('');
 }
 function removeFile(i){currentFiles.splice(i,1);renderFileList();}
 
-function clearForm(){
-  ['f-exp','f-hyp','f-protocol','f-samples','f-reagents','f-measurements','f-obs','f-outcome','f-next','f-notes','f-netapp','f-project-custom'].forEach(function(id){document.getElementById(id).value='';});
-  document.getElementById('f-status').value='completed';
-  selectedRating='';selectedProject='';currentFiles=[];
-  document.querySelectorAll('.r-btn').forEach(function(b){b.classList.remove('active');});
-  renderProjectSelector();renderFileList();document.getElementById('file-input').value='';
-}
-
-async function submitEntry(){
-  var exp=document.getElementById('f-exp').value.trim();
-  if(!exp){showToast('log-toast','Please enter the experiment title.','err');return;}
-  var project=document.getElementById('f-project-custom').value.trim()||selectedProject||'General';
-  showToast('log-toast','Saving…','ok');
-  try{
-    await dbFetch('entries',{method:'POST',body:JSON.stringify({
-      member_name:userName,user_id:currentUser.id,
-      date:document.getElementById('f-date').value||todayStr(),
-      experiment:exp,project:project,
-      status:document.getElementById('f-status').value,
-      hypothesis:document.getElementById('f-hyp').value,
-      protocol:document.getElementById('f-protocol').value,
-      samples:document.getElementById('f-samples').value,
-      reagents:document.getElementById('f-reagents').value,
-      measurements:document.getElementById('f-measurements').value,
-      observations:document.getElementById('f-obs').value,
-      outcome:document.getElementById('f-outcome').value,
-      rating:selectedRating,
-      next_steps:document.getElementById('f-next').value,
-      notes:document.getElementById('f-notes').value,
-      netapp_path:document.getElementById('f-netapp').value,
-      images:JSON.stringify(currentFiles.map(function(f){return{name:f.name,data:f.data,caption:f.caption,isImg:f.isImg};}))
-    })});
-    await loadEntries();clearForm();
-    showToast('log-toast','Entry saved and synced ✓','ok');
-  }catch(e){showToast('log-toast','Could not save — check connection.','err');console.error(e);}
-}
-
-function entryFiles(e){if(!e.images)return[];if(typeof e.images==='string'){try{return JSON.parse(e.images);}catch(x){return[];}}return e.images;}
-function statusBadge(s){var m={completed:['bg','Completed'],'in-progress':['bb','In progress'],failed:['br','Failed'],pending:['ba','Pending']};var r=m[s]||['bx',s];return'<span class="badge '+r[0]+'">'+r[1]+'</span>';}
-function setHistoryTab(t){historyTab=t;document.querySelectorAll('#history-tabs .tab-btn').forEach(function(b,i){b.classList.toggle('active',['mine','today'][i]===t);});renderEntries();}
-
-function renderEntries(){
-  var nf=(document.getElementById('filter-name').value||'').toLowerCase();
-  var pf=(document.getElementById('filter-proj').value||'').toLowerCase();
-  var df=document.getElementById('filter-date').value;
-  var filtered=allEntries.filter(function(e){
-    if(historyTab==='mine'&&e.member_name!==userName&&!isPI)return false;
-    if(historyTab==='today'&&e.date!==todayStr())return false;
-    if(nf&&!(e.member_name||'').toLowerCase().includes(nf))return false;
-    if(pf&&!(e.project||'').toLowerCase().includes(pf))return false;
-    if(df&&e.date!==df)return false;
-    return true;
-  });
-  document.getElementById('entries-sub').textContent=filtered.length+' entr'+(filtered.length!==1?'ies':'y');
-  var el=document.getElementById('entries-list');
-  if(!filtered.length){el.innerHTML='<div class="empty">No entries found.</div>';return;}
-  el.innerHTML=filtered.map(function(e,i){
-    var files=entryFiles(e);var imgs=files.filter(function(f){return f.isImg;});var otherF=files.filter(function(f){return !f.isImg;});
-    return'<div class="e-card '+e.status+'" onclick="toggleDetail(\'ed'+i+'\')">'+
-      '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'+
-      '<div><div class="e-name">'+e.experiment+'</div>'+
-      (e.project?'<div class="e-proj">'+e.project+'</div>':'')+
-      '<div class="e-meta">'+[e.member_name,e.date,e.rating?'Quality: '+e.rating:''].filter(Boolean).join(' · ')+'</div></div>'+
-      statusBadge(e.status)+'</div>'+
-      (files.length?'<div style="margin-top:6px"><span class="badge bx">'+files.length+' file'+(files.length>1?'s':'')+'</span></div>':'')+
-      (e.outcome?'<div class="e-excerpt">'+e.outcome.slice(0,160)+(e.outcome.length>160?'…':'')+'</div>':'')+
-      '<div class="e-detail" id="ed'+i+'">'+
-      (e.hypothesis?'<div class="d-block"><div class="d-lbl">Hypothesis</div><div class="d-val">'+e.hypothesis+'</div></div>':'')+
-      (e.protocol?'<div class="d-block"><div class="d-lbl">Protocol</div><div class="d-val">'+e.protocol+'</div></div>':'')+
-      (e.samples?'<div class="d-block"><div class="d-lbl">Samples</div><div class="d-val">'+e.samples+'</div></div>':'')+
-      (e.reagents?'<div class="d-block"><div class="d-lbl">Reagents</div><div class="d-val">'+e.reagents+'</div></div>':'')+
-      (e.measurements?'<div class="d-block"><div class="d-lbl">Measurements</div><div class="d-val">'+e.measurements+'</div></div>':'')+
-      (e.observations?'<div class="d-block"><div class="d-lbl">Observations</div><div class="d-val">'+e.observations+'</div></div>':'')+
-      (e.next_steps?'<div class="d-block"><div class="d-lbl">Next steps</div><div class="d-val">'+e.next_steps+'</div></div>':'')+
-      (e.notes?'<div class="d-block"><div class="d-lbl">Notes</div><div class="d-val">'+e.notes+'</div></div>':'')+
-      (e.netapp_path?'<div class="d-block"><div class="d-lbl">Raw data path</div><div class="d-val"><span class="d-link">'+e.netapp_path+'</span></div></div>':'')+
-      (imgs.length?'<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">'+imgs.map(function(f){return'<div><img src="'+f.data+'" style="height:70px;border-radius:6px;border:1px solid var(--border)"/><div style="font-size:10px;color:var(--ink3);margin-top:2px">'+f.caption+'</div></div>';}).join('')+'</div>':'')+
-      (otherF.length?'<div class="d-files">'+otherF.map(function(f){return'<span class="d-file-chip">'+fileIcon(f.name).emoji+' '+f.name+'</span>';}).join('')+'</div>':'')+
-      '</div></div>';
-  }).join('');
-}
-function toggleDetail(id){document.getElementById(id).classList.toggle('open');}
-
-function renderSummaryMeta(){
-  var te=todayEntries();
-  var ds=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  document.getElementById('summary-date').textContent=ds;
-  document.getElementById('e-subj').textContent='VSB Lab daily report — '+ds;
-  var tf=te.reduce(function(s,e){return s+entryFiles(e).length;},0);
-  document.getElementById('s-count').textContent=te.length;
-  document.getElementById('s-members').textContent=[...new Set(te.map(function(e){return e.member_name;}))].length;
-  document.getElementById('s-done').textContent=te.filter(function(e){return e.status==='completed';}).length;
-  document.getElementById('s-files').textContent=tf;
-  if(!te.length)document.getElementById('e-body').textContent='No entries logged today yet.';
-}
-
-async function generateSummary(){
-  await loadEntries();var te=todayEntries();renderSummaryMeta();if(!te.length)return;
-  document.getElementById('ai-chip').style.display='inline-flex';
-  document.getElementById('e-body').textContent='Generating AI summary…';
-  var ds=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  var members=[...new Set(te.map(function(e){return e.member_name;}))];
-  var projects={};
-  te.forEach(function(e){var p=e.project||'General';if(!projects[p])projects[p]=[];projects[p].push(e);});
-  var sum=Object.keys(projects).map(function(p){
-    return'PROJECT: '+p+'\n'+projects[p].map(function(e){
-      return'  - '+e.experiment+' ('+e.member_name+', '+e.status+'): outcome='+(e.outcome||'N/A')+', quality='+(e.rating||'N/A')+', next steps='+(e.next_steps||'N/A');
-    }).join('\n');
-  }).join('\n\n');
-  try{
-    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1400,messages:[{role:'user',content:'Write a professional daily lab report email body for PI of the Vascular Systems Bioengineering Lab at Technion. Date: '+ds+'. Researchers: '+members.join(', ')+'. Experiments by project:\n\n'+sum+'\n\nStructure: 1) 2-sentence executive summary 2) For each project, use "## [Project Name]" then bullet list of experiments with key findings 3) Flag failures or issues 4) Team next steps 5) Brief overall assessment. Plain text, ## for project headers, bullet points with •.'}]})});
-    var d=await r.json();var b=d.content&&d.content.find(function(x){return x.type==='text';});
-    document.getElementById('e-body').textContent=b?b.text:'Could not generate summary.';
-  }catch(err){
-    var fb=Object.keys(projects).map(function(p){return'## '+p+'\n'+projects[p].map(function(e){return'• '+e.experiment+' — '+e.member_name+' ('+e.status+')';}).join('\n');}).join('\n\n');
-    document.getElementById('e-body').textContent='Daily report — '+ds+'\n\n'+fb;
-  }
-  document.getElementById('ai-chip').style.display='none';
-}
-
+// ── EMAIL RECIPIENTS ──────────────────────────────────────────────────────────
 function addExtraEmail(){
   var input=document.getElementById('add-email-input');
   var email=input.value.trim();
@@ -848,107 +747,421 @@ function addExtraEmail(){
   input.value='';
 }
 function addEmailOnEnter(e){if(e.key==='Enter'){e.preventDefault();addExtraEmail();}}
-function removeExtraEmail(email){extraEmails=extraEmails.filter(function(e){return e!==email;});renderEmailTags();}
+function removeExtraEmail(email){extraEmails=extraEmails.filter(e=>e!==email);renderEmailTags();}
 function renderEmailTags(){
   document.getElementById('email-to-tags').innerHTML=
-    '<span class="email-to-tag">landaulevilab@gmail.com</span>'+
-    extraEmails.map(function(e){return'<span class="email-to-tag">'+e+'<button onclick="removeExtraEmail(\''+e+'\')">✕</button></span>';}).join('');
+    '<span class="email-to-tag fixed">landaulevilab@gmail.com (PI)</span>'+
+    extraEmails.map(e=>`<span class="email-to-tag">${e}<button onclick="removeExtraEmail('${e}')">✕</button></span>`).join('');
 }
 
-async function sendSummary(){
+// ── RATING ────────────────────────────────────────────────────────────────────
+function setRating(r){
+  selectedRating=r;
+  document.querySelectorAll('.r-btn').forEach(b=>{
+    var t=b.textContent.toLowerCase();
+    b.classList.toggle('active',t===r||(t==='ok'&&r==='acceptable'));
+  });
+}
+
+// ── FORM CLEAR ────────────────────────────────────────────────────────────────
+function clearForm(){
+  ['f-exp','f-hyp','f-protocol','f-samples','f-reagents','f-measurements','f-obs','f-outcome','f-next','f-notes','f-netapp'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('f-status').value='completed';
+  selectedRating='';currentFiles=[];
+  document.querySelectorAll('.r-btn').forEach(b=>b.classList.remove('active'));
+  renderFileList();document.getElementById('file-input').value='';
+}
+
+// ── SUBMIT ENTRY + IMMEDIATE EMAIL ────────────────────────────────────────────
+async function submitEntry(){
+  var exp=document.getElementById('f-exp').value.trim();
+  if(!exp){showToast('log-toast','Please enter the experiment title.','err');return;}
+  if(!selectedFolder){showToast('log-toast','Please select or create a project folder.','err');return;}
+
+  showToast('log-toast','Saving and sending…','ok');
+
+  var entry={
+    member_name:userName,user_id:currentUser.id,
+    date:document.getElementById('f-date').value||todayStr(),
+    experiment:exp,project:selectedFolder,
+    status:document.getElementById('f-status').value,
+    hypothesis:document.getElementById('f-hyp').value,
+    protocol:document.getElementById('f-protocol').value,
+    samples:document.getElementById('f-samples').value,
+    reagents:document.getElementById('f-reagents').value,
+    measurements:document.getElementById('f-measurements').value,
+    observations:document.getElementById('f-obs').value,
+    outcome:document.getElementById('f-outcome').value,
+    rating:selectedRating,
+    next_steps:document.getElementById('f-next').value,
+    notes:document.getElementById('f-notes').value,
+    netapp_path:document.getElementById('f-netapp').value,
+    images:JSON.stringify(currentFiles.map(f=>({name:f.name,data:f.data,caption:f.caption,isImg:f.isImg})))
+  };
+
+  try{
+    await dbFetch('entries',{method:'POST',body:JSON.stringify(entry)});
+  }catch(e){showToast('log-toast','Could not save to database.','err');console.error(e);return;}
+
+  await loadEntries();
+
+  // Build and send immediate email
+  var allTo=[PI_EMAIL,...extraEmails];
+  var emailHtml=buildEntryEmail(entry,currentFiles);
+  var subj=`[VSB Lab] ${userName} — ${exp} (${selectedFolder}) — ${entry.date}`;
+
+  try{
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',max_tokens:300,
+      mcp_servers:[{type:'url',url:'https://gmailmcp.googleapis.com/mcp/v1',name:'gmail'}],
+      messages:[{role:'user',content:`Send this HTML email via Gmail:\nTo: ${allTo.join(', ')}\nSubject: ${subj}\nHTML:\n${emailHtml}\n\nSend now and confirm.`}]
+    })});
+    var d=await r.json();
+    var txt=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join(' ');
+    var sent=txt.toLowerCase().includes('sent')||txt.toLowerCase().includes('success')||(d.content||[]).some(b=>b.type==='mcp_tool_result');
+    if(sent){showToast('log-toast',`Entry saved! Report sent to ${allTo.join(', ')} ✓`,'ok');}
+    else{throw new Error();}
+  }catch(e){
+    showToast('log-toast','Saved! (Email could not send automatically — check Gmail connection)','ok');
+  }
+
+  clearForm();
+}
+
+function buildEntryEmail(entry,files){
+  var sc={completed:'#1a5c3a','in-progress':'#1a3060',failed:'#8b2020',pending:'#9a6b00'};
+  var flds=[
+    ['Project',entry.project],['Date',entry.date],['Status',entry.status],
+    ['Hypothesis',entry.hypothesis],['Protocol',entry.protocol],
+    ['Samples',entry.samples],['Reagents',entry.reagents],
+    ['Measurements',entry.measurements],['Observations',entry.observations],
+    ['Outcome',entry.outcome],['Quality',entry.rating],
+    ['Next steps',entry.next_steps],['Notes',entry.notes],
+    ['Raw data path',entry.netapp_path]
+  ].filter(f=>f[1]&&String(f[1]).trim());
+
+  var tableRows=flds.map((f,i)=>`<tr style="${i?'border-top:1px solid #eef0f6':''}">
+    <td style="padding:7px 0;color:#7a7a9a;font-size:10px;text-transform:uppercase;font-weight:700;letter-spacing:0.06em;vertical-align:top;width:130px;">${f[0]}</td>
+    <td style="padding:7px 0;color:#1a1a2e;font-size:13px;line-height:1.6;">${f[1]}</td>
+  </tr>`).join('');
+
+  var imgs=files.filter(f=>f.isImg);
+  var otherFiles=files.filter(f=>!f.isImg);
+  var imgsHtml=imgs.length?`<div style="margin-top:14px;padding-top:14px;border-top:1px solid #eef0f6;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#7a7a9a;font-weight:700;margin-bottom:10px;">Figures &amp; images</div>
+    ${imgs.map(f=>`<div style="display:inline-block;margin-right:10px;margin-bottom:10px;vertical-align:top;">
+      <img src="${f.data}" width="180" height="130" style="object-fit:cover;border-radius:6px;border:1px solid #dde0ec;display:block;"/>
+      <div style="font-size:10px;color:#7a7a9a;margin-top:4px;max-width:180px;">${f.caption||f.name}</div>
+    </div>`).join('')}</div>`:'';
+
+  var otherHtml=otherFiles.length?`<div style="margin-top:12px;padding-top:12px;border-top:1px solid #eef0f6;">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#7a7a9a;font-weight:700;margin-bottom:8px;">Attached files</div>
+    <div>${otherFiles.map(f=>`<span style="background:#eef0f6;color:#1a3060;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;margin-right:6px;margin-bottom:6px;display:inline-block;">${fileIcon(f.name)} ${f.name}</span>`).join('')}</div></div>`:'';
+
+  return `<div style="font-family:Georgia,serif;max-width:640px;margin:0 auto;">
+    <div style="height:3px;background:linear-gradient(90deg,#0f1f3d,#1a6e7a,#2a9aaa);"></div>
+    <div style="background:#0f1f3d;padding:24px 28px;">
+      <div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">VASCULAR SYSTEMS BIOENGINEERING LAB</div>
+      <div style="font-size:20px;color:white;font-family:Georgia,serif;">Experiment Report</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">${entry.date} &nbsp;·&nbsp; Submitted by ${entry.member_name}</div>
+    </div>
+    <div style="background:white;padding:24px 28px;border:1px solid #dde0ec;border-top:none;">
+      <div style="background:#eef0f6;border-left:3px solid #1a6e7a;padding:12px 16px;border-radius:0 6px 6px 0;margin-bottom:20px;">
+        <div style="font-size:18px;font-family:Georgia,serif;color:#0f1f3d;">${entry.experiment}</div>
+        <div style="font-size:12px;color:#7a7a9a;margin-top:4px;">
+          <span style="background:#0f1f3d;color:white;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;margin-right:8px;">${entry.project}</span>
+          <span style="color:${sc[entry.status]||'#555'};font-weight:600;">${entry.status.toUpperCase()}</span>
+        </div>
+      </div>
+      <table width="100%" cellpadding="0" cellspacing="0">${tableRows}</table>
+      ${imgsHtml}${otherHtml}
+    </div>
+    <div style="text-align:center;padding:12px;font-size:11px;color:#999;border:1px solid #dde0ec;border-top:none;border-radius:0 0 6px 6px;background:#f8f9fc;">
+      Vascular Systems Bioengineering Lab &nbsp;·&nbsp; Technion &nbsp;·&nbsp; ${entry.date}
+    </div>
+  </div>`;
+}
+
+// ── FOLDER TREE VIEW ─────────────────────────────────────────────────────────
+function entryFiles(e){if(!e.images)return[];if(typeof e.images==='string'){try{return JSON.parse(e.images);}catch(x){return[];}}return e.images;}
+function statusBadge(s){var m={completed:['bg','Completed'],'in-progress':['bb','In progress'],failed:['br','Failed'],pending:['ba','Pending']};var r=m[s]||['bx',s];return`<span class="badge ${r[0]}">${r[1]}</span>`;}
+function setHistoryTab(t){historyTab=t;document.querySelectorAll('#history-tabs .tab-btn').forEach((b,i)=>b.classList.toggle('active',['mine','all'][i]===t));renderFolderTree();}
+
+function renderFolderTree(){
+  var search=(document.getElementById('filter-search').value||'').toLowerCase();
+  var df=document.getElementById('filter-date').value;
+
+  var sourceEntries=historyTab==='all'&&isPI?allEntries:allEntries.filter(e=>e.member_name===userName);
+  var filtered=sourceEntries.filter(e=>{
+    if(search&&!( (e.experiment||'').toLowerCase().includes(search)||(e.project||'').toLowerCase().includes(search)))return false;
+    if(df&&e.date!==df)return false;
+    return true;
+  });
+
+  document.getElementById('entries-sub').textContent=filtered.length+' experiment'+(filtered.length!==1?'s':'');
+  var tree=document.getElementById('folder-tree');
+  if(!filtered.length){tree.innerHTML='<div class="empty">No experiments found.<br>Log your first experiment above.</div>';return;}
+
+  // Group: student → project → experiments
+  var byStudent={};
+  filtered.forEach(e=>{
+    var s=e.member_name||'Unknown';
+    if(!byStudent[s])byStudent[s]={};
+    var p=e.project||'General';
+    if(!byStudent[s][p])byStudent[s][p]=[];
+    byStudent[s][p].push(e);
+  });
+
+  tree.innerHTML=Object.keys(byStudent).sort().map(student=>{
+    var projects=byStudent[student];
+    var totalExp=Object.values(projects).reduce((s,arr)=>s+arr.length,0);
+    var initials=student.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+
+    var projHtml=Object.keys(projects).sort().map(proj=>{
+      var experiments=projects[proj];
+      var projId='proj-'+btoa(student+proj).replace(/[^a-z0-9]/gi,'').slice(0,12);
+
+      var expHtml=experiments.sort((a,b)=>b.date.localeCompare(a.date)).map((e,i)=>{
+        var files=entryFiles(e);var imgs=files.filter(f=>f.isImg);var otherF=files.filter(f=>!f.isImg);
+        var expId='exp-'+e.id;
+        return`<div class="exp-item" onclick="toggleExpDetail('${expId}')">
+          <div class="exp-date">${e.date}</div>
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+            <div class="exp-title">${e.experiment}</div>
+            ${statusBadge(e.status)}
+          </div>
+          ${files.length?`<div class="exp-status"><span class="badge bx">${files.length} file${files.length>1?'s':''}</span></div>`:''}
+          <div class="exp-detail" id="${expId}">
+            ${e.outcome?`<div class="d-block"><div class="d-lbl">Outcome</div><div class="d-val">${e.outcome}</div></div>`:''}
+            ${e.hypothesis?`<div class="d-block"><div class="d-lbl">Hypothesis</div><div class="d-val">${e.hypothesis}</div></div>`:''}
+            ${e.protocol?`<div class="d-block"><div class="d-lbl">Protocol</div><div class="d-val">${e.protocol}</div></div>`:''}
+            ${e.samples?`<div class="d-block"><div class="d-lbl">Samples</div><div class="d-val">${e.samples}</div></div>`:''}
+            ${e.reagents?`<div class="d-block"><div class="d-lbl">Reagents</div><div class="d-val">${e.reagents}</div></div>`:''}
+            ${e.measurements?`<div class="d-block"><div class="d-lbl">Measurements</div><div class="d-val">${e.measurements}</div></div>`:''}
+            ${e.observations?`<div class="d-block"><div class="d-lbl">Observations</div><div class="d-val">${e.observations}</div></div>`:''}
+            ${e.next_steps?`<div class="d-block"><div class="d-lbl">Next steps</div><div class="d-val">${e.next_steps}</div></div>`:''}
+            ${e.notes?`<div class="d-block"><div class="d-lbl">Notes</div><div class="d-val">${e.notes}</div></div>`:''}
+            ${e.netapp_path?`<div class="d-block"><div class="d-lbl">Raw data path</div><div class="d-val"><span class="d-link">${e.netapp_path}</span></div></div>`:''}
+            ${imgs.length?`<div class="d-imgs">${imgs.map(f=>`<div class="d-img"><img src="${f.data}" alt="${f.caption||f.name}"/><div class="d-img-cap">${f.caption||f.name}</div></div>`).join('')}</div>`:''}
+            ${otherF.length?`<div class="d-files">${otherF.map(f=>`<span class="d-file-chip">${fileIcon(f.name)} ${f.name}</span>`).join('')}</div>`:''}
+          </div>
+        </div>`;
+      }).join('');
+
+      return`<div class="project-folder">
+        <div class="project-folder-header" onclick="toggleFolder('${projId}')">
+          <span class="project-folder-icon">📁</span>
+          <span class="project-folder-name">${proj}</span>
+          <span class="project-folder-count">${experiments.length} experiment${experiments.length!==1?'s':''}</span>
+          <button onclick="event.stopPropagation();deleteFolder('${student.replace(/'/g,\"\\\'\")}','${proj.replace(/'/g,\"\\\'\")}');" style="background:none;border:none;color:#c0392b;cursor:pointer;font-size:13px;padding:2px 6px;margin-left:4px;opacity:0.6;" title="Delete folder">🗑</button>
+          <button onclick="event.stopPropagation();deleteFolder('${student.replace(/'/g,\"\\'\")}','${proj.replace(/'/g,\"\\'\")}');" style="background:none;border:none;color:#c0392b;cursor:pointer;font-size:13px;padding:2px 6px;margin-left:auto;opacity:0.7;" title="Delete folder and all experiments">🗑</button>
+          <span class="project-folder-chevron" id="chev-${projId}">▶</span>
+        </div>
+        <div class="project-folder-body" id="${projId}">${expHtml}</div>
+      </div>`;
+    }).join('');
+
+    var studentId='student-'+btoa(student).replace(/[^a-z0-9]/gi,'').slice(0,12);
+    return`<div class="student-folder">
+      <div class="student-folder-header" onclick="toggleStudentFolder('${studentId}')">
+        <div class="student-folder-icon">${initials}</div>
+        <div>
+          <div class="student-folder-name">${student}</div>
+          <div class="student-folder-meta">${Object.keys(projects).length} project${Object.keys(projects).length!==1?'s':''} &nbsp;·&nbsp; ${totalExp} experiment${totalExp!==1?'s':''}</div>
+        </div>
+        <span class="student-folder-chevron" id="schev-${studentId}">▶</span>
+      </div>
+      <div class="student-folder-body" id="${studentId}">${projHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleStudentFolder(id){
+  var body=document.getElementById(id);var chev=document.getElementById('schev-'+id);
+  var open=body.classList.toggle('open');chev.classList.toggle('open',open);
+}
+function toggleFolder(id){
+  var body=document.getElementById(id);var chev=document.getElementById('chev-'+id);
+  var open=body.classList.toggle('open');chev.classList.toggle('open',open);
+}
+function toggleExpDetail(id){document.getElementById(id).classList.toggle('open');}
+
+// ── SUMMARY ───────────────────────────────────────────────────────────────────
+function renderSummaryMeta(){
   var te=todayEntries();
-  if(!te.length){showToast('summary-toast','No entries to send.','err');return;}
+  var ds=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('summary-date').textContent=ds;
+  document.getElementById('e-subj').textContent='VSB Lab daily summary — '+ds;
+  var tf=te.reduce((s,e)=>s+entryFiles(e).length,0);
+  document.getElementById('s-count').textContent=te.length;
+  document.getElementById('s-members').textContent=[...new Set(te.map(e=>e.member_name))].length;
+  document.getElementById('s-done').textContent=te.filter(e=>e.status==='completed').length;
+  document.getElementById('s-files').textContent=tf;
+  if(!te.length)document.getElementById('e-body').textContent='No entries logged today yet.';
+}
+
+async function generateSummary(){
+  await loadEntries();var te=todayEntries();renderSummaryMeta();if(!te.length)return;
+  document.getElementById('ai-chip').style.display='inline-flex';
+  document.getElementById('e-body').textContent='Generating…';
+  var ds=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  // Group: student → project → experiments
+  var byStudent={};
+  te.forEach(e=>{var s=e.member_name;if(!byStudent[s])byStudent[s]={};var p=e.project||'General';if(!byStudent[s][p])byStudent[s][p]=[];byStudent[s][p].push(e);});
+  var sum=Object.keys(byStudent).map(s=>`STUDENT: ${s}\n${Object.keys(byStudent[s]).map(p=>`  PROJECT: ${p}\n${byStudent[s][p].map(e=>`    - ${e.experiment} (${e.status}): outcome=${e.outcome||'N/A'}, quality=${e.rating||'N/A'}, next=${e.next_steps||'N/A'}`).join('\n')}`).join('\n')}`).join('\n\n');
+  try{
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1400,messages:[{role:'user',content:`Write a professional daily PI summary email for the Vascular Systems Bioengineering Lab at Technion. Date: ${ds}. Structure: 1) 2-sentence executive summary. 2) For each student, use "## [Student Name]" as header, then for each project use "### [Project]" as subheader, then bullet list of experiments. 3) Flag any failures. 4) Overall assessment. Plain text only, use ## and ### for headers, • for bullets.\n\nData:\n${sum}`}]})});
+    var d=await r.json();var b=d.content&&d.content.find(x=>x.type==='text');
+    document.getElementById('e-body').textContent=b?b.text:'Could not generate.';
+  }catch(err){
+    var fb=Object.keys(byStudent).map(s=>`## ${s}\n${Object.keys(byStudent[s]).map(p=>`### ${p}\n${byStudent[s][p].map(e=>`• ${e.experiment} (${e.status})`).join('\n')}`).join('\n')}`).join('\n\n');
+    document.getElementById('e-body').textContent=`Summary — ${ds}\n\n${fb}`;
+  }
+  document.getElementById('ai-chip').style.display='none';
+}
+
+async function sendDailySummary(){
+  var te=todayEntries();
+  if(!te.length){showToast('summary-toast','No entries logged today.','err');return;}
   var bodyEl=document.getElementById('e-body');
   if(!bodyEl.textContent||bodyEl.textContent.startsWith('Tap')||bodyEl.textContent.startsWith('No entries')){await generateSummary();}
   var ds=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
   var subj=document.getElementById('e-subj').textContent;
-  var aiSummary=bodyEl.textContent;
-  var allTo=[PI_EMAIL,...extraEmails];
-  var includeFiles=document.getElementById('t-files').classList.contains('on');
-  var fullDetails=document.getElementById('t-full').classList.contains('on');
-  var projects={};
-  te.forEach(function(e){var p=e.project||'General';if(!projects[p])projects[p]=[];projects[p].push(e);});
-  var tf=te.reduce(function(s,e){return s+entryFiles(e).length;},0);
-  var members=[...new Set(te.map(function(e){return e.member_name;}))];
-  var sc={completed:'#1a5c3a','in-progress':'#1a3060',failed:'#8b2020',pending:'#b8860b'};
-  var statsRow=[['Entries',te.length],['Members',members.length],['Completed',te.filter(function(e){return e.status==='completed';}).length],['Files',tf]].map(function(s,i){
-    return'<td width="22%" style="background:#eef0f6;border-radius:6px;padding:12px 14px;vertical-align:top;"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:#7a7a9a;font-weight:700;margin-bottom:4px;">'+s[0]+'</div><div style="font-size:24px;font-family:Georgia,serif;color:#1a1a2e;">'+s[1]+'</div></td>'+(i<3?'<td width="4%"></td>':'');
-  }).join('');
-  var projHtml=Object.keys(projects).map(function(projName){
-    var experiments=projects[projName];
-    var expHtml=experiments.map(function(entry){
-      var files=entryFiles(entry);var imgs=files.filter(function(f){return f.isImg;});var otherF=files.filter(function(f){return !f.isImg;});
-      var detailRows='';
-      if(fullDetails){
-        var flds=[['Researcher',entry.member_name],['Status',entry.status],['Hypothesis',entry.hypothesis],['Protocol',entry.protocol],['Samples',entry.samples],['Reagents',entry.reagents],['Measurements',entry.measurements],['Observations',entry.observations],['Outcome',entry.outcome],['Quality',entry.rating],['Next steps',entry.next_steps],['Notes',entry.notes],['Raw data path',entry.netapp_path]].filter(function(f){return f[1]&&String(f[1]).trim();});
-        detailRows=flds.map(function(f,i){return'<tr style="'+(i?'border-top:1px solid #eef0f6':'')+'"><td style="padding:5px 0;color:#7a7a9a;font-size:10px;text-transform:uppercase;font-weight:700;vertical-align:top;width:120px;letter-spacing:0.06em">'+f[0]+'</td><td style="padding:5px 0;color:#1a1a2e;font-size:13px;line-height:1.5">'+f[1]+'</td></tr>';}).join('');
-      }
-      var imgsHtml='';
-      if(includeFiles&&imgs.length){imgsHtml='<div style="margin-top:10px">'+imgs.map(function(f){return'<div style="display:inline-block;margin-right:8px;margin-bottom:8px;vertical-align:top"><img src="'+f.data+'" width="160" height="110" style="object-fit:cover;border-radius:6px;border:1px solid #dde0ec;display:block"/><div style="font-size:10px;color:#7a7a9a;margin-top:3px;max-width:160px">'+(f.caption||f.name)+'</div></div>';}).join('')+'</div>';}
-      var otherHtml='';
-      if(otherF.length){otherHtml='<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:5px">'+otherF.map(function(f){return'<span style="background:#eef0f6;color:#2a4a8a;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500">'+fileIcon(f.name).emoji+' '+f.name+'</span>';}).join('')+'</div>';}
-      return'<div style="margin-bottom:10px;border:1px solid #dde0ec;border-radius:8px;overflow:hidden">'+
-        '<div style="background:#0f1f3d;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">'+
-        '<span style="color:white;font-size:13.5px;font-weight:600">'+entry.experiment+'</span>'+
-        '<span style="font-size:11px;color:rgba(255,255,255,0.5)">'+entry.member_name+' &nbsp;·&nbsp; <span style="color:'+(sc[entry.status]||'#aaa')+'">'+entry.status+'</span></span></div>'+
-        '<div style="padding:12px 14px;background:white">'+
-        (fullDetails&&detailRows?'<table width="100%" cellpadding="0" cellspacing="0">'+detailRows+'</table>':'<div style="font-size:13px;color:#1a1a2e"><strong>Status:</strong> '+entry.status+(entry.outcome?' &nbsp;·&nbsp; <strong>Outcome:</strong> '+entry.outcome.slice(0,150):'')+'</div>')+
-        imgsHtml+otherHtml+'</div></div>';
+  var aiText=bodyEl.textContent;
+  var tf=te.reduce((s,e)=>s+entryFiles(e).length,0);
+
+  // Group by student → project for email
+  var byStudent={};
+  te.forEach(e=>{var s=e.member_name;if(!byStudent[s])byStudent[s]={};var p=e.project||'General';if(!byStudent[s][p])byStudent[s][p]=[];byStudent[s][p].push(e);});
+
+  var statsRow=[['Entries',te.length],['Members',Object.keys(byStudent).length],['Completed',te.filter(e=>e.status==='completed').length],['Files',tf]].map((s,i)=>
+    `<td width="22%" style="background:#eef0f6;border-radius:6px;padding:12px 14px;vertical-align:top;"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:#7a7a9a;font-weight:700;margin-bottom:4px;">${s[0]}</div><div style="font-size:24px;font-family:Georgia,serif;color:#1a1a2e;">${s[1]}</div></td>`+(i<3?'<td width="4%"></td>':'')).join('');
+
+  var sc={completed:'#1a5c3a','in-progress':'#1a3060',failed:'#8b2020',pending:'#9a6b00'};
+
+  var studentsHtml=Object.keys(byStudent).sort().map(student=>{
+    var initials=student.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    var projsHtml=Object.keys(byStudent[student]).sort().map(proj=>{
+      var experiments=byStudent[student][proj];
+      var expRows=experiments.sort((a,b)=>b.date.localeCompare(a.date)).map(e=>{
+        var files=entryFiles(e);var imgs=files.filter(f=>f.isImg);var otherF=files.filter(f=>!f.isImg);
+        var flds=[['Date',e.date],['Status',e.status],['Hypothesis',e.hypothesis],['Protocol',e.protocol],['Samples',e.samples],['Reagents',e.reagents],['Measurements',e.measurements],['Observations',e.observations],['Outcome',e.outcome],['Quality',e.rating],['Next steps',e.next_steps],['Notes',e.notes],['Raw data',e.netapp_path]].filter(f=>f[1]&&String(f[1]).trim());
+        var rows=flds.map((f,i)=>`<tr style="${i?'border-top:1px solid #eef0f6':''}"><td style="padding:5px 0;color:#7a7a9a;font-size:10px;text-transform:uppercase;font-weight:700;vertical-align:top;width:110px;">${f[0]}</td><td style="padding:5px 0;color:#1a1a2e;font-size:12px;line-height:1.5;">${f[1]}</td></tr>`).join('');
+        var imgsHtml=imgs.length?`<div style="margin-top:10px;">${imgs.map(f=>`<div style="display:inline-block;margin-right:8px;margin-bottom:8px;vertical-align:top;"><img src="${f.data}" width="150" height="110" style="object-fit:cover;border-radius:5px;border:1px solid #dde0ec;display:block;"/><div style="font-size:10px;color:#7a7a9a;margin-top:3px;max-width:150px;">${f.caption||f.name}</div></div>`).join('')}</div>`:'';
+        var otherHtml=otherF.length?`<div style="margin-top:8px;">${otherF.map(f=>`<span style="background:#eef0f6;color:#1a3060;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:500;margin-right:5px;">${fileIcon(f.name)} ${f.name}</span>`).join('')}</div>`:'';
+        return`<div style="margin-bottom:10px;border:1px solid #dde0ec;border-radius:8px;overflow:hidden;">
+          <div style="background:#0f1f3d;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;">
+            <span style="color:white;font-size:13px;font-weight:600;">${e.experiment}</span>
+            <span style="color:${sc[e.status]||'#aaa'};font-size:11px;font-weight:600;">${e.status.toUpperCase()}</span>
+          </div>
+          <div style="padding:12px 14px;background:white;"><table width="100%" cellpadding="0" cellspacing="0">${rows}</table>${imgsHtml}${otherHtml}</div>
+        </div>`;
+      }).join('');
+      return`<div style="margin-bottom:12px;">
+        <div style="background:#eef0f6;padding:8px 14px;border-radius:6px;margin-bottom:8px;display:flex;align-items:center;gap:8px;">
+          <span style="font-size:14px;">📁</span>
+          <span style="font-size:14px;font-weight:600;color:#0f1f3d;font-family:Georgia,serif;">${proj}</span>
+          <span style="font-size:11px;color:#7a7a9a;">${experiments.length} experiment${experiments.length!==1?'s':''}</span>
+        </div>
+        ${expRows}
+      </div>`;
     }).join('');
-    return'<div style="margin-bottom:22px">'+
-      '<div style="background:linear-gradient(135deg,#0f1f3d,#1a6e7a);padding:12px 16px;border-radius:8px 8px 0 0">'+
-      '<div style="color:white;font-size:15px;font-weight:600;font-family:Georgia,serif">'+projName+'</div>'+
-      '<div style="color:rgba(255,255,255,0.55);font-size:11px;margin-top:2px">'+experiments.length+' experiment'+(experiments.length>1?'s':'')+'</div></div>'+
-      '<div style="padding:14px;background:#f8f9fc;border:1px solid #dde0ec;border-top:none;border-radius:0 0 8px 8px">'+expHtml+'</div></div>';
+    return`<div style="margin-bottom:20px;border:1px solid #dde0ec;border-radius:10px;overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#0f1f3d,#1a6e7a);padding:14px 18px;display:flex;align-items:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0;">${initials}</div>
+        <div>
+          <div style="color:white;font-size:16px;font-family:Georgia,serif;">${student}</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:1px;">${Object.keys(byStudent[student]).length} project${Object.keys(byStudent[student]).length!==1?'s':''}</div>
+        </div>
+      </div>
+      <div style="padding:14px;background:#f8f9fc;">${projsHtml}</div>
+    </div>`;
   }).join('');
-  var html='<div style="font-family:Georgia,serif;max-width:660px;margin:0 auto">'+
-    '<div style="height:3px;background:linear-gradient(90deg,#0f1f3d,#1a6e7a,#2a9aaa)"></div>'+
-    '<div style="background:#0f1f3d;padding:28px 32px">'+
-    '<div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px">VASCULAR SYSTEMS BIOENGINEERING LAB</div>'+
-    '<div style="font-size:22px;color:white;font-family:Georgia,serif;font-weight:normal">Daily Lab Report</div>'+
-    '<div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px">'+ds+' &nbsp;·&nbsp; Technion – Israel Institute of Technology</div></div>'+
-    '<div style="background:white;padding:28px 32px;border:1px solid #dde0ec;border-top:none">'+
-    '<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px"><tr>'+statsRow+'</tr></table>'+
-    '<div style="background:#eef0f6;border-left:3px solid #1a6e7a;padding:14px 16px;border-radius:0 8px 8px 0;margin-bottom:28px">'+
-    '<div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#1a6e7a;font-weight:700;margin-bottom:8px">AI-Generated Summary</div>'+
-    '<div style="font-size:13px;color:#3a3a55;line-height:1.75;white-space:pre-wrap">'+aiSummary+'</div></div>'+
-    '<div style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:#7a7a9a;font-weight:700;margin-bottom:16px;border-bottom:1px solid #dde0ec;padding-bottom:8px">Experiments by Project</div>'+
-    projHtml+'</div>'+
-    '<div style="text-align:center;padding:14px;font-size:11px;color:#999;border:1px solid #dde0ec;border-top:none;border-radius:0 0 6px 6px;background:#f8f9fc">Vascular Systems Bioengineering Lab &nbsp;·&nbsp; Technion &nbsp;·&nbsp; '+ds+'</div></div>';
-  showToast('summary-toast','Sending…','ok');
+
+  var html=`<div style="font-family:Georgia,serif;max-width:660px;margin:0 auto;">
+    <div style="height:3px;background:linear-gradient(90deg,#0f1f3d,#1a6e7a,#2a9aaa);"></div>
+    <div style="background:#0f1f3d;padding:26px 30px;">
+      <div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">VASCULAR SYSTEMS BIOENGINEERING LAB</div>
+      <div style="font-size:21px;color:white;font-family:Georgia,serif;font-weight:normal;">Daily PI Summary</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;">${ds} &nbsp;·&nbsp; Technion – Israel Institute of Technology</div>
+    </div>
+    <div style="background:white;padding:26px 30px;border:1px solid #dde0ec;border-top:none;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:22px;"><tr>${statsRow}</tr></table>
+      <div style="background:#eef0f6;border-left:3px solid #1a6e7a;padding:14px 16px;border-radius:0 8px 8px 0;margin-bottom:26px;">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#1a6e7a;font-weight:700;margin-bottom:8px;">AI-GENERATED SUMMARY</div>
+        <div style="font-size:13px;color:#3a3a55;line-height:1.75;white-space:pre-wrap;">${aiText}</div>
+      </div>
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:#7a7a9a;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #dde0ec;">Entries by researcher &amp; project</div>
+      ${studentsHtml}
+    </div>
+    <div style="text-align:center;padding:12px;font-size:11px;color:#999;border:1px solid #dde0ec;border-top:none;border-radius:0 0 6px 6px;background:#f8f9fc;">
+      Vascular Systems Bioengineering Lab &nbsp;·&nbsp; Technion &nbsp;·&nbsp; ${ds}
+    </div>
+  </div>`;
+
+  showToast('summary-toast','Sending summary…','ok');
   try{
-    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,mcp_servers:[{type:'url',url:'https://gmailmcp.googleapis.com/mcp/v1',name:'gmail'}],messages:[{role:'user',content:'Send this HTML email via Gmail:\nTo: '+allTo.join(', ')+'\nSubject: '+subj+'\nHTML:\n'+html+'\n\nSend now and confirm.'}]})});
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,mcp_servers:[{type:'url',url:'https://gmailmcp.googleapis.com/mcp/v1',name:'gmail'}],messages:[{role:'user',content:`Send this HTML email via Gmail:\nTo: ${PI_EMAIL}\nSubject: ${subj}\nHTML:\n${html}\n\nSend and confirm.`}]})});
     var d=await r.json();
-    var txt=(d.content||[]).filter(function(b){return b.type==='text';}).map(function(b){return b.text;}).join(' ');
-    var sent=txt.toLowerCase().includes('sent')||txt.toLowerCase().includes('success')||(d.content||[]).some(function(b){return b.type==='mcp_tool_result';});
-    if(sent){showToast('summary-toast','Email sent to '+allTo.join(', ')+'!','ok');}
-    else{throw new Error();}
+    var txt=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join(' ');
+    var sent=txt.toLowerCase().includes('sent')||txt.toLowerCase().includes('success')||(d.content||[]).some(b=>b.type==='mcp_tool_result');
+    if(sent){showToast('summary-toast','Daily summary sent to '+PI_EMAIL+' ✓','ok');}else{throw new Error();}
   }catch(e){
-    window.open('mailto:'+allTo.join(',')+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(aiSummary));
+    window.open('mailto:'+PI_EMAIL+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(aiText));
     showToast('summary-toast','Opening email client…','ok');
   }
 }
 
+// ── SETTINGS ──────────────────────────────────────────────────────────────────
 async function saveName(){
   var name=document.getElementById('s-myname').value.trim();
   if(!name){showToast('name-toast','Please enter a name.','err');return;}
   try{
     await fetch(SUPABASE_URL+'/auth/v1/user',{method:'PUT',headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+userToken,'Content-Type':'application/json'},body:JSON.stringify({data:{full_name:name}})});
-    userName=name;document.getElementById('f-name').value=name;
-    document.getElementById('user-name-top').textContent=name;
+    userName=name;document.getElementById('user-name-top').textContent=name;
     document.getElementById('user-avatar-top').textContent=name.charAt(0).toUpperCase();
     document.getElementById('set-name-lbl').textContent=name;
     document.getElementById('sidebar-user-name').textContent=name;
     var s=JSON.parse(localStorage.getItem('lab_session')||'{}');
     if(s.token){s.userName=name;localStorage.setItem('lab_session',JSON.stringify(s));}
     showToast('name-toast','Name saved!','ok');
-  }catch(e){showToast('name-toast','Could not save name.','err');}
+  }catch(e){showToast('name-toast','Could not save.','err');}
+}
+
+async function deleteEntry(entryId){
+  if(!confirm('Delete this experiment? This cannot be undone.'))return;
+  try{
+    await dbFetch('entries?id=eq.'+entryId,{method:'DELETE',headers:{'Prefer':'return=minimal'}});
+    allEntries=allEntries.filter(e=>e.id!==entryId);
+    updateBadge();
+    renderFolderTree();
+  }catch(e){alert('Could not delete. Check your connection.');console.error(e);}
+}
+
+function deleteFolder(student, proj){
+  var count=allEntries.filter(e=>e.member_name===student&&e.project===proj).length;
+  if(!confirm(`Delete folder "${proj}" and all ${count} experiment${count!==1?'s':''} inside? This cannot be undone.`))return;
+  // Delete all entries in this folder from DB
+  var ids=allEntries.filter(e=>e.member_name===student&&e.project===proj).map(e=>e.id);
+  Promise.all(ids.map(id=>dbFetch('entries?id=eq.'+id,{method:'DELETE',headers:{'Prefer':'return=minimal'}})))
+    .then(()=>{
+      allEntries=allEntries.filter(e=>!(e.member_name===student&&e.project===proj));
+      // Also remove from local folder list if it's the current user's folder
+      if(student===userName){
+        userFolders=userFolders.filter(f=>f!==proj);
+        saveFolders();
+        renderFolderSelector();
+      }
+      updateBadge();
+      renderFolderTree();
+    })
+    .catch(e=>{alert('Could not delete folder. Check your connection.');console.error(e);});
 }
 
 function showToast(id,msg,type){
   var el=document.getElementById(id);if(!el)return;
   el.textContent=msg;el.className='toast '+(type==='ok'?'t-ok':'t-err')+' show';
-  setTimeout(function(){el.classList.remove('show');},5000);
+  setTimeout(()=>el.classList.remove('show'),5000);
 }
 </script>
 </body>
